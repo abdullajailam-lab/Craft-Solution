@@ -1,990 +1,732 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>CoolCraft Solutions 🛠️ | AC & Appliance Experts</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+  <title>🚀 Funded Pass Nuvi</title>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <style>
     :root {
-      --primary: #0a2e5f;      /* Deep navy */
-      --secondary: #1a5f6e;
-      --accent: #ff6b00;       /* Electric coral */
-      --accent-light: #ff9843;
-      --light: #fdfdfd;
-      --cream: #fff9f5;
-      --gray: #6c757d;
-      --light-gray: #f1f3f5;
-      --shadow: 0 6px 20px rgba(0,0,0,0.1);
-      --transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-      --border-radius: 16px;
+      --bg: #F9FAFB;
+      --card-bg: #FFFFFF;
+      --text: #263238;
+      --text-light: #78909C;
+      --accent: #E3F2FD;
+      --success: #C8E6C9;
+      --danger: #FFCDD2;
+      --border: #CFD8DC;
+      --hover: #ECEFF1;
+      --cream: #FFF8E1;
+      --yellow: #F0F4C3;
+      --shadow: 0 2px 8px rgba(0,0,0,0.05);
     }
 
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      transition: all 0.2s ease;
     }
 
     body {
-      font-family: 'Poppins', sans-serif;
-      background-color: var(--cream);
-      color: var(--primary);
-      line-height: 1.6;
-      overflow-x: hidden;
+      background: var(--bg);
+      color: var(--text);
+      padding: 20px;
+      min-height: 100vh;
     }
 
     .container {
-      width: 100%;
       max-width: 1200px;
       margin: 0 auto;
-      padding: 0 20px;
     }
 
-    h1, h2, h3, h4 {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 800;
-      line-height: 1.2;
-    }
-
-    /* Header */
-    .header {
-      background: var(--light);
-      box-shadow: var(--shadow);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    .top-bar {
-      background: linear-gradient(90deg, var(--primary), var(--secondary));
-      color: white;
+    header {
       text-align: center;
-      padding: 8px 0;
-      font-size: 0.95rem;
+      margin-bottom: 30px;
+      padding: 25px;
+      background: linear-gradient(135deg, #FFFFFF, var(--accent));
+      border-radius: 15px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
     }
 
-    .main-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 0;
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      color: var(--text);
+      letter-spacing: 1px;
     }
 
-    .logo {
+    .subtitle {
+      font-size: 1.2rem;
+      color: var(--text-light);
+      margin-bottom: 20px;
+    }
+
+    .controls {
       display: flex;
-      align-items: center;
       gap: 15px;
-    }
-    .logo-image {
-      width: 60px;
-      height: 60px;
-    }
-    .logo-text {
-      font-size: 26px;
-      font-weight: 800;
-      color: var(--primary);
-    }
-    .logo-sub {
-      color: var(--accent);
-      font-size: 14px;
-      font-weight: 600;
-      margin-top: 2px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 20px;
+      padding: 15px;
+      background: var(--card-bg);
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
     }
 
-    .nav-links {
-      display: flex;
-      gap: 20px;
-      list-style: none;
-    }
-    .nav-links a {
-      text-decoration: none;
-      color: var(--primary);
-      font-weight: 600;
-      padding: 8px 12px;
+    input, select, button {
+      padding: 12px 18px;
+      border: 1px solid var(--border);
       border-radius: 8px;
-      transition: var(--transition);
-    }
-    .nav-links a:hover {
-      background: var(--accent);
-      color: white;
+      font-size: 1rem;
+      background: #FFFFFF;
+      color: var(--text);
     }
 
-    .cta-button {
-      background: var(--accent);
-      color: white;
-      padding: 10px 24px;
-      border-radius: 30px;
-      font-weight: 700;
-      text-decoration: none;
-      transition: var(--transition);
-      box-shadow: 0 4px 12px rgba(255,107,0,0.3);
+    input:focus, select:focus {
+      outline: 2px solid var(--accent);
+      box-shadow: 0 0 0 4px rgba(100, 181, 246, 0.1);
     }
-    .cta-button:hover {
-      background: #ff5252;
+
+    button {
+      background: var(--accent);
+      color: var(--text);
+      cursor: pointer;
+      font-weight: bold;
+      border: none;
+    }
+
+    button:hover {
+      background: #BBDEFB;
       transform: translateY(-2px);
     }
 
-    /* Hero */
-    .hero {
-      background: linear-gradient(rgba(10, 46, 95, 0.85), rgba(10, 46, 95, 0.9)), url('https://images.unsplash.com/photo-1600857062560-2e53a7c1b2a0?auto=format&fit=crop&w=1400') center/cover;
-      color: white;
-      padding: 120px 0 80px;
-      text-align: center;
-    }
-    .hero h1 {
-      font-size: 3.2rem;
-      margin-bottom: 20px;
-      position: relative;
-    }
-    .hero h1::after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80px;
-      height: 4px;
-      background: var(--accent);
-      border-radius: 2px;
-    }
-    .hero p {
-      font-size: 1.2rem;
-      max-width: 650px;
-      margin: 0 auto 30px;
-      opacity: 0.95;
+    button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
     }
 
-    .hero-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-    .btn {
-      padding: 14px 32px;
-      border-radius: 50px;
-      font-weight: 700;
-      text-decoration: none;
-      display: inline-block;
-      transition: var(--transition);
-      font-size: 1.05rem;
-    }
-    .btn-primary {
-      background: var(--accent);
-      color: white;
-      box-shadow: 0 6px 15px rgba(255,107,0,0.4);
-    }
-    .btn-primary:hover {
-      background: #ff5252;
-      transform: translateY(-3px);
-    }
-    .btn-outline {
-      background: transparent;
-      border: 2px solid white;
-      color: white;
-    }
-    .btn-outline:hover {
-      background: rgba(255,255,255,0.15);
-      transform: translateY(-3px);
-    }
-
-    /* Services Section */
-    .section {
-      padding: 80px 0;
-    }
     .section-title {
-      text-align: center;
-      margin-bottom: 60px;
-    }
-    .section-title h2 {
-      font-size: 2.8rem;
-      color: var(--primary);
-      margin-bottom: 15px;
-      position: relative;
-    }
-    .section-title h2::after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80px;
-      height: 4px;
-      background: var(--accent);
-      border-radius: 2px;
-    }
-    .section-title p {
-      color: var(--gray);
-      max-width: 600px;
-      margin: 20px auto 0;
-      font-size: 1.1rem;
+      font-size: 1.5rem;
+      margin: 30px 0 15px;
+      color: var(--text);
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 5px;
     }
 
-    .services-grid {
+    .client-list {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+      margin-bottom: 30px;
     }
 
-    .service-card {
-      background: white;
-      border-radius: var(--border-radius);
-      padding: 30px;
-      text-align: center;
+    .client-card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 20px;
       box-shadow: var(--shadow);
-      transition: var(--transition);
-      border: 1px solid var(--light-gray);
-      position: relative;
-      overflow: hidden;
+      border: 1px solid var(--border);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .client-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    .client-header {
       display: flex;
-      flex-direction: column;
       justify-content: space-between;
-    }
-    .service-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-    }
-    .service-icon {
-      width: 80px;
-      height: 80px;
-      background: linear-gradient(135deg, var(--accent), var(--accent-light));
-      border-radius: 50%;
-      display: flex;
       align-items: center;
-      justify-content: center;
-      margin: 0 auto 20px;
-      font-size: 32px;
-      color: white;
-      transition: var(--transition);
-      box-shadow: 0 4px 15px rgba(255,107,0,0.3);
-    }
-    .service-card:hover .service-icon {
-      transform: scale(1.1);
-      box-shadow: 0 6px 20px rgba(255,107,0,0.4);
-    }
-    .service-card h3 {
-      font-size: 1.4rem;
       margin-bottom: 15px;
-      color: var(--primary);
-      font-weight: 700;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
     }
-    .service-card p {
-      color: var(--gray);
-      font-size: 0.95rem;
-      margin-bottom: 20px;
+
+    .client-name {
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: var(--text);
     }
-    .service-link {
-      display: inline-flex;
-      align-items: center;
-      color: var(--accent);
-      font-weight: 600;
-      text-decoration: none;
-      transition: var(--transition);
-      margin-top: auto;
-    }
-    .service-link:hover {
-      color: var(--primary);
-      transform: translateX(5px);
-    }
-    .service-link i {
-      margin-left: 5px;
+
+    .client-stats {
+      display: flex;
+      justify-content: space-between;
+      margin: 10px 0;
       font-size: 0.9rem;
     }
 
-    /* Features Section */
-    .features {
-      background: var(--light);
-      padding: 80px 0;
-    }
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
-    }
-    .feature-item {
-      display: flex;
-      align-items: flex-start;
-      padding: 25px;
-      border-radius: var(--border-radius);
-      background: white;
-      transition: var(--transition);
-      border: 1px solid var(--light-gray);
-      position: relative;
-      overflow: hidden;
-    }
-    .feature-item::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 5px;
-      height: 100%;
-      background: linear-gradient(135deg, var(--accent), var(--accent-light));
-      transition: var(--transition);
-    }
-    .feature-item:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--shadow);
-    }
-    .feature-item:hover::before {
-      width: 10px;
-    }
-    .feature-icon {
-      min-width: 60px;
-      height: 60px;
-      background: linear-gradient(135deg, var(--accent), var(--accent-light));
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-right: 20px;
-      font-size: 24px;
-      color: white;
-      box-shadow: 0 4px 15px rgba(255,107,0,0.3);
-      transition: var(--transition);
-    }
-    .feature-item:hover .feature-icon {
-      transform: scale(1.1);
-      box-shadow: 0 6px 20px rgba(255,107,0,0.4);
-    }
-    .feature-content h3 {
-      font-size: 1.3rem;
-      margin-bottom: 10px;
-      color: var(--primary);
-      font-weight: 700;
-    }
-    .feature-content p {
-      color: var(--gray);
+    .stat {
+      text-align: center;
+      padding: 8px;
+      background: var(--accent);
+      border-radius: 6px;
+      font-weight: bold;
     }
 
-    /* Booking Section */
-    .booking-section {
-      background: linear-gradient(120deg, var(--primary), var(--secondary));
-      color: white;
-      padding: 80px 0;
-      text-align: center;
+    .achieved-count {
+      color: #2E7D32;
     }
-    .booking-form {
-      background: white;
-      padding: 35px;
-      border-radius: 20px;
-      max-width: 700px;
-      margin: 40px auto 0;
-      color: var(--primary);
+
+    .total-profit {
+      color: #F57F17;
     }
-    .form-group {
-      margin-bottom: 20px;
+
+    .trade-form {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 15px 0;
+      padding: 10px;
+      background: var(--cream);
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+
+    .trade-form input, .trade-form select, .trade-form button {
+      flex: 1;
+      min-width: 100px;
+    }
+
+    .trade-form button {
+      background: var(--yellow);
+      color: var(--text);
+    }
+
+    .trade-form button:hover {
+      background: #E6EE9C;
+    }
+
+    .pin-section {
+      margin: 12px 0;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .performance-section {
+      margin-top: 15px;
+      display: none;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--card-bg);
+      border-radius: 8px;
+      overflow: hidden;
+      margin: 15px 0;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+
+    th, td {
+      padding: 10px;
       text-align: left;
-    }
-    .form-label {
-      display: block;
-      margin-bottom: 6px;
-      font-weight: 600;
-    }
-    .form-control {
-      width: 100%;
-      padding: 12px 15px;
-      border: 1px solid #ddd;
-      border-radius: 10px;
-      font-size: 1rem;
-      font-family: inherit;
-    }
-    .submit-btn {
-      width: 100%;
-      padding: 14px;
-      background: var(--accent);
-      color: white;
-      border: none;
-      border-radius: 10px;
-      font-weight: 700;
-      font-size: 1.1rem;
-      cursor: pointer;
-      transition: var(--transition);
-    }
-    .submit-btn:hover {
-      background: #ff5252;
+      border-bottom: 1px solid var(--border);
     }
 
-    /* Modal */
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.6);
-      z-index: 2000;
-      justify-content: center;
-      align-items: center;
+    th {
+      background: var(--accent);
+      font-weight: bold;
+      color: var(--text);
+      font-size: 0.9rem;
     }
-    .modal-content {
-      background: white;
-      padding: 40px;
-      border-radius: 20px;
-      max-width: 500px;
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    .checkmark {
+      display: inline-block;
+      width: 22px;
+      height: 22px;
+      background: var(--success);
+      color: #2E7D32;
       text-align: center;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    }
-    .close-modal {
-      margin-top: 20px;
-      padding: 10px 25px;
-      background: var(--accent);
-      color: white;
-      border: none;
-      border-radius: 30px;
-      cursor: pointer;
-    }
-
-    /* Footer */
-    .footer {
-      background: var(--primary);
-      color: white;
-      padding: 60px 0 30px;
-    }
-    .footer-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 30px;
-    }
-    .footer h3 {
-      margin-bottom: 20px;
-      position: relative;
-      padding-bottom: 8px;
-    }
-    .footer h3::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0;
-      width: 40px;
-      height: 3px;
-      background: var(--accent);
-    }
-
-    /* Floating Actions */
-    .floating-actions {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      z-index: 1000;
-    }
-    .action-btn {
-      width: 60px;
-      height: 60px;
+      line-height: 22px;
       border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 24px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      transition: var(--transition);
-      position: relative;
-      overflow: hidden;
-      z-index: 1;
-    }
-    .call-btn {
-      background: linear-gradient(135deg, var(--accent), var(--accent-light));
-    }
-    .whatsapp-btn {
-      background: #25D366;
-    }
-    .chat-btn {
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-    }
-    .action-btn::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      transition: var(--transition);
-      z-index: -1;
-    }
-    .action-btn:hover {
-      transform: scale(1.1);
-      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
-    }
-    .action-btn:hover::before {
-      left: 0;
-    }
-    .action-btn::after {
-      content: attr(data-title);
-      position: absolute;
-      top: -40px;
-      right: 0;
-      background: var(--primary);
-      color: white;
-      padding: 8px 15px;
-      border-radius: 5px;
-      font-size: 0.8rem;
-      white-space: nowrap;
-      opacity: 0;
-      transition: var(--transition);
-      pointer-events: none;
-      z-index: 2;
-    }
-    .action-btn:hover::after {
-      opacity: 1;
-      transform: translateX(-50%);
+      font-weight: bold;
+      font-size: 0.9rem;
     }
 
-    /* Live Chat Widget */
-    .live-chat {
-      position: fixed;
-      bottom: 120px;
-      right: 30px;
-      background: white;
-      border-radius: 15px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.15);
-      width: 320px;
-      max-height: 400px;
-      display: none;
-      flex-direction: column;
-      overflow: hidden;
-      z-index: 1000;
-      border: 1px solid #ddd;
+    .cross {
+      display: inline-block;
+      width: 22px;
+      height: 22px;
+      background: var(--danger);
+      color: #C62828;
+      text-align: center;
+      line-height: 22px;
+      border-radius: 50%;
+      font-weight: bold;
+      font-size: 0.9rem;
     }
-    .chat-header {
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      color: white;
-      padding: 15px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+
+    .leaderboard {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
     }
-    .chat-title {
+
+    .leaderboard-item {
       display: flex;
       align-items: center;
+      padding: 12px;
+      border-bottom: 1px solid var(--border);
+      transition: background 0.1s;
     }
-    .chat-title i {
+
+    .leaderboard-item:last-child {
+      border-bottom: none;
+    }
+
+    .leaderboard-item:hover {
+      background: var(--hover);
+    }
+
+    .rank {
+      font-weight: bold;
+      color: var(--text);
       margin-right: 10px;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
     }
-    .chat-messages {
-      padding: 15px;
-      flex: 1;
-      overflow-y: auto;
-      background: #f8fafc;
+
+    .leaderboard-name {
+      flex-grow: 1;
+      font-weight: bold;
     }
-    .message {
-      margin-bottom: 15px;
-      padding: 12px 15px;
-      border-radius: 15px;
-      max-width: 80%;
-      word-wrap: break-word;
-      position: relative;
+
+    .leaderboard-score {
+      font-weight: bold;
+      color: #2E7D32;
     }
-    .received {
-      background: white;
-      align-self: flex-start;
-      border: 1px solid #ddd;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    }
-    .sent {
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      color: white;
-      margin-left: auto;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    .chat-input {
-      display: flex;
-      padding: 10px;
-      background: white;
-      border-top: 1px solid #ddd;
-    }
-    .chat-input input {
-      flex: 1;
-      padding: 10px;
-      border: 1px solid #ddd;
-      border-radius: 20px;
-      outline: none;
-      font-family: inherit;
-    }
-    .chat-input button {
-      background: linear-gradient(135deg, var(--accent), var(--accent-light));
-      color: white;
-      border: none;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
+
+    .leaderboard-balance {
       margin-left: 10px;
-      cursor: pointer;
-      transition: var(--transition);
-    }
-    .chat-input button:hover {
-      background: linear-gradient(135deg, var(--accent-light), var(--accent));
-    }
-    .close-chat {
-      background: none;
-      border: none;
-      color: white;
-      font-size: 20px;
-      cursor: pointer;
-      transition: var(--transition);
-    }
-    .close-chat:hover {
-      color: #cbd6e9;
+      font-weight: normal;
+      color: var(--text-light);
     }
 
-    /* Animations */
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    .animate-fade-in-up {
-      animation: fadeInUp 0.6s ease-out;
-    }
-
-    .scroll-reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: var(--transition);
-    }
-    .scroll-reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Responsive */
     @media (max-width: 768px) {
-      .hero h1 { font-size: 2.2rem; }
-      .nav-links { display: none; }
-      .hero-buttons { flex-direction: column; align-items: center; }
-      .btn { width: 90%; }
+      .controls {
+        flex-direction: column;
+      }
+      h1 { font-size: 2.2rem; }
+      .client-card {
+        min-width: 100%;
+      }
+      .trade-form {
+        flex-direction: column;
+      }
+      .pin-section {
+        flex-direction: column;
+        align-items: stretch;
+      }
     }
   </style>
 </head>
 <body>
+  <div class="container">
+    <header>
+      <h1>🚀 Funded Pass Nuvi</h1>
+      <p class="subtitle">Track daily progress. Unlock performance. Achieve consistency.</p>
+    </header>
 
-  <!-- Top Bar -->
-  <div class="top-bar">
-    📞 Call Now: (968) 7471 | 🕒 24/7 Emergency Service!
-  </div>
-
-  <!-- Header -->
-  <header class="header">
-    <div class="container">
-      <div class="main-header">
-        <div class="logo">
-          <div class="logo-image">
-            <svg width="60" height="60" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M50 10C28 10 10 28 10 50C10 72 28 90 50 90C72 90 90 72 90 50C90 28 72 10 50 10Z" fill="#0a2e5f"/>
-              <path d="M50 30C40 30 32 38 32 50C32 62 40 70 50 70C60 70 68 62 68 50C68 38 60 30 50 30Z" fill="white"/>
-              <path d="M50 40C44 40 40 44 40 50C40 56 44 60 50 60C56 60 60 56 60 50C60 44 56 40 50 40Z" fill="#ff6b00"/>
-              <path d="M50 45C47 45 45 47 45 50C45 53 47 55 50 55C53 55 55 53 55 50C55 47 53 45 50 45Z" fill="white"/>
-              <path d="M50 50L60 50L50 60L40 50L50 40Z" fill="#ff6b00"/>
-              <path d="M30 70H70C75 70 80 75 80 80C80 85 75 90 70 90H30C25 90 20 85 20 80C20 75 25 70 30 70Z" fill="#ff6b00"/>
-            </svg>
-          </div>
-          <div>
-            <div class="logo-text">CoolCraft <span class="logo-sub">SOLUTIONS</span></div>
-          </div>
-        </div>
-        <ul class="nav-links">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Services</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Blog</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
-        <a href="#booking" class="cta-button">📅 Book Now</a>
-      </div>
+    <div class="controls">
+      <input type="text" id="newClientName" placeholder="New Client Name" />
+      <input type="password" id="newClientPin" placeholder="Set 4-digit PIN" maxlength="4" />
+      <button onclick="addClient()">➕ Add Client</button>
     </div>
-  </header>
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="container">
-      <h1>🛠️ Expert AC & Appliance Repair — Fast & Friendly!</h1>
-      <p>We fix it right the first time — with certified techs, fair pricing, and a smile 😊</p>
-      <div class="hero-buttons">
-        <a href="#booking" class="btn btn-primary">✅ Book a Technician</a>
-        <a href="tel:9687471" class="btn btn-outline">📞 Call Now</a>
-      </div>
+    <div id="message" style="margin: 10px 0; padding: 10px; border-radius: 6px; display: none;"></div>
+
+    <div class="section-title">👥 All Team Members</div>
+    <div class="client-list" id="clientList">
+      <!-- Filled by JS -->
     </div>
-  </section>
 
-  <!-- Services -->
-  <section class="section">
-    <div class="container">
-      <div class="section-title animate-fade-in-up">
-        <h2>🔧 Our Services</h2>
-        <p>We provide expert repair and installation services for all major home appliances</p>
-      </div>
-      <div class="services-grid">
-        <div class="service-card scroll-reveal">
-          <div class="service-icon">❄️</div>
-          <h3>Refrigerator Repair</h3>
-          <p>Leaking? Not cooling? We’ll fix it fast!</p>
-          <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
-        </div>
-        <div class="service-card scroll-reveal">
-          <div class="service-icon">👕</div>
-          <h3>Washing Machine</h3>
-          <p>Spin, drain, or noise issues — solved!</p>
-          <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
-        </div>
-        <div class="service-card scroll-reveal">
-          <div class="service-icon">🌀</div>
-          <h3>AC Installation</h3>
-          <p>Professional setup for perfect comfort.</p>
-          <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
-        </div>
-        <div class="service-card scroll-reveal">
-          <div class="service-icon">🌬️</div>
-          <h3>AC Maintenance</h3>
-          <p>Keep your system running all summer!</p>
-          <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Features -->
-  <section class="section features">
-    <div class="container">
-      <div class="section-title animate-fade-in-up">
-        <h2>🌟 Why Choose Us?</h2>
-        <p>We go above and beyond to provide exceptional service and customer satisfaction</p>
-      </div>
-      <div class="features-grid">
-        <div class="feature-item scroll-reveal">
-          <div class="feature-icon">⚡</div>
-          <div class="feature-content">
-            <h3>24/7 Emergency Help</h3>
-            <p>Broken at midnight? We’re on the way!</p>
-          </div>
-        </div>
-        <div class="feature-item scroll-reveal">
-          <div class="feature-icon">👨‍🔧</div>
-          <div class="feature-content">
-            <h3>Certified Experts</h3>
-            <p>Trained, background-checked, and friendly.</p>
-          </div>
-        </div>
-        <div class="feature-item scroll-reveal">
-          <div class="feature-icon">💰</div>
-          <div class="feature-content">
-            <h3>No Hidden Fees</h3>
-            <p>Upfront pricing — what you see is what you pay.</p>
-          </div>
-        </div>
-        <div class="feature-item scroll-reveal">
-          <div class="feature-icon">💯</div>
-          <div class="feature-content">
-            <h3>90-Day Warranty</h3>
-            <p>We guarantee every repair we make.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Booking -->
-  <section id="booking" class="booking-section">
-    <div class="container">
-      <div class="section-title animate-fade-in-up">
-        <h2>📅 Instant Booking</h2>
-        <p>Book your technician in minutes with our simple online form</p>
-      </div>
-      <div class="booking-form">
-        <form id="bookingForm">
-          <div class="form-group">
-            <label class="form-label">Full Name</label>
-            <input type="text" class="form-control" id="name" required>
-          </div>
-          <div class="form-group">
-            <label class="form-label">Phone</label>
-            <input type="tel" class="form-control" id="phone" required>
-          </div>
-          <div class="form-group">
-            <label class="form-label">Address</label>
-            <input type="text" class="form-control" id="address" required>
-          </div>
-          <div class="form-group">
-            <label class="form-label">Service Type</label>
-            <select class="form-control" id="service" required>
-              <option value="">Select...</option>
-              <option value="fridge">❄️ Refrigerator Repair</option>
-              <option value="washer">👕 Washing Machine</option>
-              <option value="ac-install">🌀 AC Installation</option>
-              <option value="ac-maint">🌬️ AC Maintenance</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label class="form-label">Preferred Date & Time</label>
-            <input type="datetime-local" class="form-control" id="datetime" required>
-          </div>
-          <button type="submit" class="submit-btn">✅ Confirm Booking</button>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- Modal -->
-  <div class="modal" id="confirmationModal">
-    <div class="modal-content">
-      <h2>🎉 Booking Confirmed!</h2>
-      <p id="confirmMessage">Thank you! Your technician is on the way.</p>
-      <button class="close-modal" onclick="closeModal()">Close</button>
+    <div class="section-title">🏆 Top Performers</div>
+    <div class="leaderboard" id="leaderboard">
+      <!-- Filled by JS -->
     </div>
   </div>
-
-  <!-- Live Chat Widget -->
-  <div class="live-chat" id="liveChat">
-    <div class="chat-header">
-      <div class="chat-title">
-        <i class="fas fa-headset"></i> Live Support
-      </div>
-      <button class="close-chat" id="closeChat">&times;</button>
-    </div>
-    <div class="chat-messages" id="chatMessages">
-      <div class="message received">Hello! How can I help you with your appliance today?</div>
-    </div>
-    <div class="chat-input">
-      <input type="text" id="chatInput" placeholder="Type your message...">
-      <button id="sendChat"><i class="fas fa-paper-plane"></i></button>
-    </div>
-  </div>
-
-  <!-- Floating Actions -->
-  <div class="floating-actions">
-    <a href="tel:9687471" class="action-btn call-btn" data-title="Call Now">
-      <i class="fas fa-phone-alt"></i>
-    </a>
-    <a href="https://wa.me/9687471" class="action-btn whatsapp-btn" data-title="WhatsApp">
-      <i class="fab fa-whatsapp"></i>
-    </a>
-    <button class="action-btn chat-btn" id="openChat" data-title="Live Chat">
-      <i class="fas fa-comment-dots"></i>
-    </button>
-  </div>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div>
-          <h3>CoolCraft Solutions</h3>
-          <p>🛠️ Fast, friendly, and reliable appliance & AC service since 2015.</p>
-        </div>
-        <div>
-          <h3>Quick Links</h3>
-          <p><a href="#" style="color:#ddd;">Home</a></p>
-          <p><a href="#" style="color:#ddd;">Services</a></p>
-          <p><a href="#" style="color:#ddd;">Contact</a></p>
-        </div>
-        <div>
-          <h3>Contact</h3>
-          <p>📞 (968) 7471</p>
-          <p>✉️ info@coolcraft.com</p>
-          <p>📍 City, Country</p>
-        </div>
-      </div>
-      <div style="text-align:center; margin-top:30px; color:#aaa; font-size:0.9rem;">
-        &copy; 2024 CoolCraft Solutions. All rights reserved.
-      </div>
-    </div>
-  </footer>
 
   <script>
-    // Scroll Animation
-    const scrollRevealElements = document.querySelectorAll('.scroll-reveal');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
+    // ==============================
+    // 🔌 SUPABASE SETUP
+    // ==============================
+    const supabase = supabase.createClient(
+      'YOUR_SUPABASE_URL',        // ← Replace with your Supabase Project URL
+      'YOUR_SUPABASE_ANON_KEY'    // ← Replace with your anon public key
+    );
+
+    // ==============================
+    // 📊 TARGET DATA
+    // ==============================
+    const targets = [
+      { day: 1, target: 2.50, expected: 12.50 },
+      { day: 2, target: 3.13, expected: 15.63 },
+      { day: 3, target: 3.90, expected: 19.53 },
+      { day: 4, target: 4.88, expected: 24.41 },
+      { day: 5, target: 6.10, expected: 30.51 },
+      { day: 6, target: 7.63, expected: 38.14 },
+      { day: 7, target: 9.54, expected: 47.68 },
+      { day: 8, target: 11.92, expected: 59.60 },
+      { day: 9, target: 14.90, expected: 74.50 },
+      { day: 10, target: 18.63, expected: 93.13 },
+      { day: 11, target: 23.28, expected: 116.41 },
+      { day: 12, target: 29.10, expected: 145.57 },
+      { day: 13, target: 36.39, expected: 181.96 },
+      { day: 14, target: 45.49, expected: 227.45 },
+      { day: 15, target: 56.86, expected: 284.31 },
+      { day: 16, target: 71.08, expected: 355.39 },
+      { day: 17, target: 88.85, expected: 444.24 },
+      { day: 18, target: 111.06, expected: 555.30 },
+      { day: 19, target: 138.83, expected: 694.13 },
+      { day: 20, target: 173.53, expected: 867.66 },
+      { day: 21, target: 216.93, expected: 1084.54 },
+      { day: 22, target: 271.15, expected: 1355.73 },
+      { day: 23, target: 338.93, expected: 1694.66 },
+      { day: 24, target: 423.67, expected: 2118.33 },
+      { day: 25, target: 529.58, expected: 2647.91 },
+      { day: 26, target: 661.98, expected: 3309.89 },
+      { day: 27, target: 827.47, expected: 4137.36 },
+      { day: 28, target: 1034.34, expected: 5171.70 },
+      { day: 29, target: 1292.93, expected: 6464.63 },
+      { day: 30, target: 1616.60, expected: 8080.79 }
+    ];
+
+    // ==============================
+    // 🧠 GLOBAL STATE
+    // ==============================
+    let teamData = { clients: [] };
+    const unlockedClients = new Set();
+
+    // ==============================
+    // 🌀 LOAD FROM SUPABASE
+    // ==============================
+    async function loadTeamData() {
+      const {  clients, error: clientsError } = await supabase
+        .from('clients')
+        .select('*')
+        .order('created_at', { ascending: true });
+
+      if (clientsError) {
+        console.error('Error loading clients:', clientsError);
+        showMessage("⚠️ Could not load team data", "error");
+        return;
+      }
+
+      const loadedClients = [];
+      for (const client of clients) {
+        const {  records, error: recordsError } = await supabase
+          .from('records')
+          .select('day, profit, balance')
+          .eq('client_id', client.id)
+          .order('day', { ascending: true });
+
+        loadedClients.push({
+          id: client.id,
+          name: client.name,
+          pin: client.pin,
+          records: records || []
+        });
+      }
+
+      teamData = { clients: loadedClients };
+      renderClientList();
+      renderLeaderboard();
+    }
+
+    // ==============================
+    // 👤 RENDER CLIENT LIST
+    // ==============================
+    function renderClientList() {
+      const clientList = document.getElementById('clientList');
+      clientList.innerHTML = '';
+
+      teamData.clients.forEach(client => {
+        const isUnlocked = unlockedClients.has(client.id);
+        const achievedCount = getAchievedCount(client);
+        const totalProfit = getTotalProfit(client);
+        const currentBalance = getCurrentBalance(client);
+
+        let tradeForm = `
+          <div class="trade-form">
+            <select class="day-select" data-client="${client.id}" ${isUnlocked ? '' : 'disabled'}>
+              <option value="">Select Day</option>
+        `;
+        targets.forEach(t => {
+          tradeForm += `<option value="${t.day}">Day ${t.day}</option>`;
+        });
+        tradeForm += `
+            </select>
+            <input type="number" step="0.01" placeholder="Profit ($)" class="profit-input" data-client="${client.id}" ${isUnlocked ? '' : 'disabled'} />
+            <button onclick="logTradeForClient('${client.id}')" ${isUnlocked ? '' : 'disabled'}>📈 Log Trade</button>
+          </div>
+        `;
+
+        const card = document.createElement('div');
+        card.className = 'client-card';
+        card.id = `client-${client.id}`;
+        card.innerHTML = `
+          <div class="client-header">
+            <span class="client-name">${client.name}</span>
+            <span class="stat achieved-count">${achievedCount} / 30</span>
+          </div>
+          <div class="client-stats">
+            <div class="stat">
+              <div>Total Profit</div>
+              <div class="total-profit">$${totalProfit.toFixed(2)}</div>
+            </div>
+            <div class="stat">
+              <div>Current Balance</div>
+              <div>$${currentBalance.toFixed(2)}</div>
+            </div>
+          </div>
+          ${tradeForm}
+          <div class="pin-section">
+            <input type="password" id="pin-${client.id}" placeholder="Enter 4-digit PIN to unlock actions" maxlength="4" />
+            <button onclick="unlockClient('${client.id}')">🔓 Unlock</button>
+          </div>
+          <div class="performance-section" id="perf-${client.id}" style="${isUnlocked ? 'display:block' : 'display:none'}">
+            <!-- Performance table shown after unlock -->
+          </div>
+        `;
+
+        clientList.appendChild(card);
       });
-    }, {
-      threshold: 0.1
-    });
-    scrollRevealElements.forEach(element => {
-      observer.observe(element);
-    });
-
-    // Booking Form
-    document.getElementById('bookingForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      const name = document.getElementById('name').value;
-      const service = document.getElementById('service').options[document.getElementById('service').selectedIndex].text;
-      const datetime = new Date(document.getElementById('datetime').value).toLocaleString();
-
-      const message = `Hi ${name}! 🎉<br>Your booking for <strong>${service}</strong> on <strong>${datetime}</strong> is confirmed!<br>A technician will contact you shortly.`;
-      
-      document.getElementById('confirmMessage').innerHTML = message;
-      document.getElementById('confirmationModal').style.display = 'flex';
-      
-      // Save to localStorage (optional)
-      const booking = { name, service, datetime };
-      localStorage.setItem('latestBooking', JSON.stringify(booking));
-      
-      this.reset();
-    });
-
-    function closeModal() {
-      document.getElementById('confirmationModal').style.display = 'none';
     }
 
-    // Close modal on outside click
-    window.onclick = function(event) {
-      const modal = document.getElementById('confirmationModal');
-      if (event.target === modal) closeModal();
+    // ==============================
+    // 🔓 UNLOCK CLIENT
+    // ==============================
+    function unlockClient(clientId) {
+      const client = teamData.clients.find(c => c.id === clientId);
+      if (!client) return;
+
+      const pinInput = document.getElementById(`pin-${clientId}`).value;
+      if (pinInput !== client.pin) {
+        showMessage("❌ Incorrect PIN!", "error");
+        return;
+      }
+
+      unlockedClients.add(clientId);
+      renderClientList();
+
+      // Build performance table
+      let table = `
+        <table>
+          <thead>
+            <tr>
+              <th>Day</th>
+              <th>Balance</th>
+              <th>Target</th>
+              <th>Expected</th>
+              <th>Achieved?</th>
+            </tr>
+          </thead>
+          <tbody>
+      `;
+      targets.forEach(target => {
+        const record = client.records.find(r => r.day === target.day);
+        const balance = record ? record.balance : (target.day === 1 ? 10 : 0);
+        const achieved = record && record.profit >= target.target;
+        const achievedCell = achieved 
+          ? '<span class="checkmark">✔️</span>' 
+          : '<span class="cross">❌</span>';
+
+        table += `
+          <tr>
+            <td>${target.day}</td>
+            <td>$${balance.toFixed(2)}</td>
+            <td>$${target.target.toFixed(2)}</td>
+            <td>$${target.expected.toFixed(2)}</td>
+            <td>${achievedCell}</td>
+          </tr>
+        `;
+      });
+      table += `</tbody></table>`;
+
+      document.getElementById(`perf-${clientId}`).innerHTML = table;
+      document.getElementById(`perf-${clientId}`).style.display = "block";
+      showMessage("✅ Actions unlocked for this session!", "success");
     }
 
-    // Live Chat Toggle
-    document.getElementById('openChat').addEventListener('click', function() {
-      document.getElementById('liveChat').style.display = 'flex';
-    });
-    document.getElementById('closeChat').addEventListener('click', function() {
-      document.getElementById('liveChat').style.display = 'none';
-    });
+    // ==============================
+    // 🏆 RENDER LEADERBOARD
+    // ==============================
+    function renderLeaderboard() {
+      const leaderboard = document.getElementById('leaderboard');
+      leaderboard.innerHTML = '';
 
-    // Live Chat Send Message
-    document.getElementById('sendChat').addEventListener('click', function() {
-      const input = document.getElementById('chatInput');
-      const message = input.value.trim();
-      if (message) {
-        const messagesContainer = document.getElementById('chatMessages');
-        const userMessage = document.createElement('div');
-        userMessage.className = 'message sent';
-        userMessage.textContent = message;
-        messagesContainer.appendChild(userMessage);
+      const sortedClients = [...teamData.clients].sort((a, b) => getAchievedCount(b) - getAchievedCount(a));
 
-        setTimeout(() => {
-          const replyMessage = document.createElement('div');
-          replyMessage.className = 'message received';
-          replyMessage.textContent = "Thanks for your message! Our team will get back to you shortly. For immediate assistance, please call (968) 7471.";
-          messagesContainer.appendChild(replyMessage);
-          messagesContainer.scrollTop = messagesContainer.scrollHeight;
-        }, 1000);
+      sortedClients.forEach((client, index) => {
+        const medal = index === 0 ? '🥇' : index === 1 ? '🥈' : index === 2 ? '🥉' : '';
+        const balance = getCurrentBalance(client);
+        const item = document.createElement('div');
+        item.className = 'leaderboard-item';
+        item.innerHTML = `
+          <span class="rank">${medal}${index + 1}</span>
+          <span class="leaderboard-name">${client.name}</span>
+          <span class="leaderboard-score">${getAchievedCount(client)} days</span>
+          <span class="leaderboard-balance">Balance: $${balance.toFixed(2)}</span>
+        `;
+        leaderboard.appendChild(item);
+      });
+    }
 
-        input.value = '';
-        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    // ==============================
+    // 📈 LOGIC HELPERS
+    // ==============================
+    function getAchievedCount(client) {
+      return client.records.filter(record => {
+        const target = targets.find(t => t.day === record.day);
+        return target && record.profit >= target.target;
+      }).length;
+    }
+
+    function getTotalProfit(client) {
+      return client.records.reduce((sum, r) => sum + r.profit, 0);
+    }
+
+    function getCurrentBalance(client) {
+      if (client.records.length === 0) return 10;
+      return Math.max(...client.records.map(r => r.day)) === 30
+        ? client.records.find(r => r.day === 30)?.balance || 0
+        : client.records.reduce((latest, r) => r.day > latest.day ? r : latest, client.records[0]).balance;
+    }
+
+    // ==============================
+    // ➕ ADD CLIENT
+    // ==============================
+    async function addClient() {
+      const name = document.getElementById('newClientName').value.trim();
+      const pin = document.getElementById('newClientPin').value.trim();
+
+      if (!name) return showMessage("Please enter a client name", "error");
+      if (!/^\d{4}$/.test(pin)) return showMessage("PIN must be exactly 4 digits", "error");
+
+      const newId = crypto.randomUUID();
+
+      const { error } = await supabase
+        .from('clients')
+        .insert({ id: newId, name, pin });
+
+      if (error) {
+        console.error('Add client error:', error);
+        return showMessage("❌ Failed to add client", "error");
       }
-    });
 
-    // Enter key to send chat
-    document.getElementById('chatInput').addEventListener('keypress', function(e) {
-      if (e.key === 'Enter') {
-        document.getElementById('sendChat').click();
+      teamData.clients.push({ id: newId, name, pin, records: [] });
+      renderClientList();
+      renderLeaderboard();
+
+      document.getElementById('newClientName').value = "";
+      document.getElementById('newClientPin').value = "";
+      showMessage(`✅ Client "${name}" added!`, "success");
+    }
+
+    // ==============================
+    // 📊 LOG TRADE
+    // ==============================
+    async function logTradeForClient(clientId) {
+      const client = teamData.clients.find(c => c.id === clientId);
+      if (!client || !unlockedClients.has(clientId)) {
+        return showMessage("🔒 Please unlock with PIN first.", "error");
       }
-    });
+
+      const daySelect = document.querySelector(`.day-select[data-client="${clientId}"]`);
+      const profitInput = document.querySelector(`.profit-input[data-client="${clientId}"]`);
+
+      const day = parseInt(daySelect.value);
+      const profit = parseFloat(profitInput.value);
+
+      if (!day || day < 1 || day > 30) return showMessage("Select a valid day (1–30)", "error");
+      if (isNaN(profit) || profit < 0) return showMessage("Enter a valid profit", "error");
+
+      // Calculate balance
+      let balance = 10;
+      if (day > 1) {
+        const prevRecord = client.records.find(r => r.day === day - 1);
+        if (prevRecord) {
+          balance = prevRecord.balance;
+        } else {
+          const prevTarget = targets.find(t => t.day === day - 1);
+          if (prevTarget) balance = prevTarget.expected;
+        }
+      }
+      balance += profit;
+
+      // Upsert record
+      const {  existing } = await supabase
+        .from('records')
+        .select('id')
+        .eq('client_id', clientId)
+        .eq('day', day)
+        .single();
+
+      let query;
+      if (existing) {
+        query = supabase
+          .from('records')
+          .update({ profit, balance })
+          .eq('id', existing.id);
+      } else {
+        query = supabase
+          .from('records')
+          .insert({ client_id: clientId, day, profit, balance });
+      }
+
+      const { error } = await query;
+      if (error) {
+        console.error('Save error:', error);
+        return showMessage("❌ Failed to save trade", "error");
+      }
+
+      // Update local state
+      const recordIndex = client.records.findIndex(r => r.day === day);
+      if (recordIndex !== -1) {
+        client.records[recordIndex] = { day, profit, balance };
+      } else {
+        client.records.push({ day, profit, balance });
+        client.records.sort((a, b) => a.day - b.day);
+      }
+
+      renderClientList();
+      renderLeaderboard();
+      showMessage(`✅ Trade logged for ${client.name} on Day ${day}!`, "success");
+
+      daySelect.value = "";
+      profitInput.value = "";
+    }
+
+    // ==============================
+    // 💬 MESSAGE HELPER
+    // ==============================
+    function showMessage(text, type) {
+      const msgDiv = document.getElementById('message');
+      msgDiv.textContent = text;
+      msgDiv.style.display = 'block';
+      msgDiv.style.backgroundColor = type === "success" ? "rgba(200, 230, 201, 0.8)" : "rgba(255, 205, 210, 0.8)";
+      msgDiv.style.color = type === "success" ? "#2E7D32" : "#C62828";
+      msgDiv.style.borderLeft = `4px solid ${type === "success" ? "#2E7D32" : "#C62828"}`;
+      setTimeout(() => msgDiv.style.display = 'none', 3000);
+    }
+
+    // ==============================
+    // 🚀 INITIALIZE
+    // ==============================
+    loadTeamData();
   </script>
-
 </body>
 </html>
