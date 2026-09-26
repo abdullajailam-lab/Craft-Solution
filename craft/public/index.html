@@ -16,7 +16,6 @@
             overflow-x: hidden;
         }
 
-        /* Floating decorations */
         .bg-shapes {
             position: fixed;
             top: 0; left: 0;
@@ -55,7 +54,6 @@
             flex-direction: column;
         }
 
-        /* ===== HOME PAGE ===== */
         .home-header {
             text-align: center;
             margin-bottom: 30px;
@@ -105,26 +103,12 @@
             box-shadow: 0 12px 35px rgba(0,0,0,0.25);
         }
 
-        .group-card:active {
-            transform: scale(0.98);
-        }
+        .group-card:active { transform: scale(0.98); }
 
-        .group-card .card-icon {
-            font-size: 3em;
-            margin-bottom: 10px;
-        }
-
-        .group-card h3 {
-            font-family: 'Fredoka One', cursive;
-            font-size: 1.1em;
-            margin-bottom: 5px;
-        }
-
-        .group-card .card-topic {
-            font-size: 0.8em;
-            color: #888;
-            font-weight: 600;
-        }
+        .group-card .card-icon { font-size: 3em; margin-bottom: 10px; }
+        .group-card h3 { font-family: 'Fredoka One', cursive; font-size: 1.1em; margin-bottom: 5px; }
+        .group-card .card-topic { font-size: 0.8em; color: #888; font-weight: 600; }
+        .group-card .card-count { font-size: 0.75em; color: #aaa; margin-top: 5px; }
 
         .group-card:nth-child(1) { border-top: 5px solid #FF6B6B; }
         .group-card:nth-child(1) h3 { color: #FF6B6B; }
@@ -135,6 +119,11 @@
         .group-card:nth-child(4) { border-top: 5px solid #96CEB4; }
         .group-card:nth-child(4) h3 { color: #96CEB4; }
 
+        .group-card.selected {
+            outline: 4px solid #667eea;
+            outline-offset: 3px;
+        }
+
         .settings-bar {
             background: rgba(255,255,255,0.95);
             border-radius: 20px;
@@ -143,11 +132,7 @@
             margin-bottom: 15px;
         }
 
-        .settings-bar h4 {
-            font-size: 1em;
-            margin-bottom: 12px;
-            color: #333;
-        }
+        .settings-bar h4 { font-size: 1em; margin-bottom: 12px; color: #333; }
 
         .settings-row {
             display: flex;
@@ -206,7 +191,7 @@
             font-weight: 600;
         }
 
-        /* ===== PRACTICE PAGE ===== */
+        /* Practice Page */
         .practice-page {
             display: none;
             position: fixed;
@@ -229,16 +214,9 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
 
-        .practice-topbar .pt-info {
-            font-weight: 700;
-            color: #333;
-            font-size: 1em;
-        }
+        .practice-topbar .pt-info { font-weight: 700; color: #333; font-size: 1em; }
 
-        .practice-topbar .pt-stats {
-            display: flex;
-            gap: 12px;
-        }
+        .practice-topbar .pt-stats { display: flex; gap: 12px; }
 
         .pt-stat {
             padding: 8px 16px;
@@ -247,29 +225,15 @@
             font-size: 1.1em;
         }
 
-        .pt-timer {
-            background: #fef3c7;
-            border: 2px solid #f59e0b;
-            color: #92400e;
-        }
-
-        .pt-timer.warning {
-            background: #fee2e2;
-            border-color: #ef4444;
-            color: #991b1b;
-            animation: pulse 1s infinite;
-        }
+        .pt-timer { background: #fef3c7; border: 2px solid #f59e0b; color: #92400e; }
+        .pt-timer.warning { background: #fee2e2; border-color: #ef4444; color: #991b1b; animation: pulse 1s infinite; }
 
         @keyframes pulse {
             0%, 100% { transform: scale(1); }
             50% { transform: scale(1.08); }
         }
 
-        .pt-score {
-            background: #d1fae5;
-            border: 2px solid #10b981;
-            color: #065f46;
-        }
+        .pt-score { background: #d1fae5; border: 2px solid #10b981; color: #065f46; }
 
         .pt-progress {
             background: rgba(255,255,255,0.95);
@@ -348,11 +312,18 @@
             text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
         }
 
+        .pc-hint {
+            font-size: 1.1em;
+            color: #aaa;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
         .pc-instruction {
             font-size: 1.3em;
             color: #888;
             font-weight: 600;
-            margin-top: 10px;
+            margin-top: 5px;
         }
 
         .practice-actions {
@@ -365,12 +336,7 @@
             max-width: 800px;
         }
 
-        .practice-actions h4 {
-            text-align: center;
-            margin-bottom: 15px;
-            font-size: 1.1em;
-            color: #333;
-        }
+        .practice-actions h4 { text-align: center; margin-bottom: 15px; font-size: 1.1em; color: #333; }
 
         .action-btns {
             display: flex;
@@ -417,7 +383,7 @@
 
         .exit-btn:hover { background: #ef4444; color: white; transform: rotate(90deg); }
 
-        /* ===== RESULT PAGE ===== */
+        /* Result Page */
         .result-page {
             display: none;
             position: fixed;
@@ -443,23 +409,9 @@
             box-shadow: 0 20px 60px rgba(0,0,0,0.3);
         }
 
-        .result-emoji {
-            font-size: 5em;
-            margin-bottom: 10px;
-        }
-
-        .result-title {
-            font-family: 'Fredoka One', cursive;
-            font-size: 1.8em;
-            color: #333;
-            margin-bottom: 5px;
-        }
-
-        .result-subtitle {
-            color: #888;
-            font-weight: 600;
-            margin-bottom: 20px;
-        }
+        .result-emoji { font-size: 5em; margin-bottom: 10px; }
+        .result-title { font-family: 'Fredoka One', cursive; font-size: 1.8em; color: #333; margin-bottom: 5px; }
+        .result-subtitle { color: #888; font-weight: 600; margin-bottom: 20px; }
 
         .result-score-big {
             font-family: 'Fredoka One', cursive;
@@ -471,11 +423,7 @@
         .result-score-big.good { color: #f59e0b; }
         .result-score-big.try-again { color: #ef4444; }
 
-        .result-message {
-            font-size: 1.2em;
-            font-weight: 700;
-            margin-bottom: 25px;
-        }
+        .result-message { font-size: 1.2em; font-weight: 700; margin-bottom: 25px; }
 
         .result-breakdown {
             text-align: left;
@@ -499,12 +447,7 @@
         .rb-item.rb-wrong { background: #fee2e2; }
         .rb-item.rb-skip { background: #fef3c7; }
 
-        .result-btns {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
+        .result-btns { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
 
         .result-btn {
             padding: 14px 28px;
@@ -517,11 +460,9 @@
         }
 
         .result-btn:hover { transform: scale(1.05); }
-
         .result-btn.home-btn { background: #667eea; color: white; }
         .result-btn.retry-btn { background: #10b981; color: white; }
 
-        /* Confetti */
         .confetti-container {
             position: fixed;
             top: 0; left: 0;
@@ -557,19 +498,19 @@
 <div class="bg-shapes">
     <span>⭐</span>
     <span>📚</span>
-    <span>️</span>
+    <span>✏️</span>
     <span></span>
-    <span>📖</span>
+    <span></span>
 </div>
 
-<!-- ===== HOME PAGE ===== -->
+<!-- HOME PAGE -->
 <div class="container" id="homePage">
     <div class="home-header">
         <h1>
             <span class="emoji">✨</span>
             Fluent Minds
         </h1>
-        <p>Home Practice Portal 🏠</p>
+        <p>Home Practice Portal </p>
     </div>
 
     <div class="group-cards">
@@ -577,26 +518,30 @@
             <div class="card-icon">🔤</div>
             <h3>Group 1</h3>
             <div class="card-topic">Letters & Sounds</div>
+            <div class="card-count">26 letters</div>
         </div>
         <div class="group-card" onclick="selectGroup(2)">
             <div class="card-icon">📖</div>
             <h3>Group 2</h3>
             <div class="card-topic">CVC & Sight Words</div>
+            <div class="card-count">45 words</div>
         </div>
         <div class="group-card" onclick="selectGroup(3)">
             <div class="card-icon">💬</div>
             <h3>Group 3</h3>
             <div class="card-topic">Short Sentences</div>
+            <div class="card-count">30 sentences</div>
         </div>
         <div class="group-card" onclick="selectGroup(4)">
             <div class="card-icon">🔄</div>
             <h3>Group 4</h3>
             <div class="card-topic">Past Tense</div>
+            <div class="card-count">50 verbs</div>
         </div>
     </div>
 
     <div class="settings-bar" id="settingsBar">
-        <h4> How many questions?</h4>
+        <h4>🔢 How many questions?</h4>
         <div class="settings-row" id="questionCountBtns">
             <button class="setting-btn" onclick="setCount(5)">5</button>
             <button class="setting-btn active" onclick="setCount(10)">10</button>
@@ -605,14 +550,14 @@
         </div>
     </div>
 
-    <button class="start-btn" onclick="startPractice()"> Start Practice!</button>
+    <button class="start-btn" onclick="startPractice()">🚀 Start Practice!</button>
 
     <div class="footer-text">
         ⌨️ Keyboard: 1=Correct | 2=Wrong | 3=Skip | ESC=Exit
     </div>
 </div>
 
-<!-- ===== PRACTICE PAGE ===== -->
+<!-- PRACTICE PAGE -->
 <div class="practice-page" id="practicePage">
     <button class="exit-btn" onclick="exitPractice()">✕</button>
 
@@ -635,6 +580,7 @@
         <div class="practice-card" id="practiceCard">
             <div class="pc-number" id="pcNumber">Q1</div>
             <div class="pc-word" id="pcWord">A</div>
+            <div class="pc-hint" id="pcHint"></div>
             <div class="pc-instruction" id="pcInstruction">Say the letter name and sound</div>
         </div>
 
@@ -649,7 +595,7 @@
     </div>
 </div>
 
-<!-- ===== RESULT PAGE ===== -->
+<!-- RESULT PAGE -->
 <div class="result-page" id="resultPage">
     <div class="result-card">
         <div class="result-emoji" id="resultEmoji">🌟</div>
@@ -657,11 +603,9 @@
         <div class="result-subtitle" id="resultSubtitle">Group 1 - Letters & Sounds</div>
         <div class="result-score-big" id="resultScore">8/10</div>
         <div class="result-message" id="resultMessage">You did amazing!</div>
-
         <div class="result-breakdown" id="resultBreakdown"></div>
-
         <div class="result-btns">
-            <button class="result-btn home-btn" onclick="goHome()">🏠 Home</button>
+            <button class="result-btn home-btn" onclick="goHome()"> Home</button>
             <button class="result-btn retry-btn" onclick="retryPractice()">🔄 Try Again</button>
         </div>
     </div>
@@ -670,61 +614,179 @@
 <div class="confetti-container" id="confettiContainer"></div>
 
 <script>
-// ==================== QUESTION POOLS ====================
+// ==================== ACTUAL QUESTION POOLS FROM PDFs ====================
 const POOLS = {
     1: [
-        { display: "A", answer: "A" }, { display: "B", answer: "B" }, { display: "C", answer: "C" },
-        { display: "D", answer: "D" }, { display: "E", answer: "E" }, { display: "F", answer: "F" },
-        { display: "G", answer: "G" }, { display: "H", answer: "H" }, { display: "I", answer: "I" },
-        { display: "J", answer: "J" }, { display: "K", answer: "K" }, { display: "L", answer: "L" },
-        { display: "M", answer: "M" }, { display: "N", answer: "N" }, { display: "O", answer: "O" },
-        { display: "P", answer: "P" }, { display: "Q", answer: "Q" }, { display: "R", answer: "R" },
-        { display: "S", answer: "S" }, { display: "T", answer: "T" }, { display: "U", answer: "U" },
-        { display: "V", answer: "V" }, { display: "W", answer: "W" }, { display: "X", answer: "X" },
-        { display: "Y", answer: "Y" }, { display: "Z", answer: "Z" }
+        { display: "A a", answer: "A", hint: "Letter A" },
+        { display: "B b", answer: "B", hint: "Letter B" },
+        { display: "C c", answer: "C", hint: "Letter C" },
+        { display: "D d", answer: "D", hint: "Letter D" },
+        { display: "E e", answer: "E", hint: "Letter E" },
+        { display: "F f", answer: "F", hint: "Letter F" },
+        { display: "G g", answer: "G", hint: "Letter G" },
+        { display: "H h", answer: "H", hint: "Letter H" },
+        { display: "I i", answer: "I", hint: "Letter I" },
+        { display: "J j", answer: "J", hint: "Letter J" },
+        { display: "K k", answer: "K", hint: "Letter K" },
+        { display: "L l", answer: "L", hint: "Letter L" },
+        { display: "M m", answer: "M", hint: "Letter M" },
+        { display: "N n", answer: "N", hint: "Letter N" },
+        { display: "O o", answer: "O", hint: "Letter O" },
+        { display: "P p", answer: "P", hint: "Letter P" },
+        { display: "Q q", answer: "Q", hint: "Letter Q" },
+        { display: "R r", answer: "R", hint: "Letter R" },
+        { display: "S s", answer: "S", hint: "Letter S" },
+        { display: "T t", answer: "T", hint: "Letter T" },
+        { display: "U u", answer: "U", hint: "Letter U" },
+        { display: "V v", answer: "V", hint: "Letter V" },
+        { display: "W w", answer: "W", hint: "Letter W" },
+        { display: "X x", answer: "X", hint: "Letter X" },
+        { display: "Y y", answer: "Y", hint: "Letter Y" },
+        { display: "Z z", answer: "Z", hint: "Letter Z" }
     ],
     2: [
-        { display: "cat", answer: "cat" }, { display: "dog", answer: "dog" }, { display: "the", answer: "the" },
-        { display: "sun", answer: "sun" }, { display: "is", answer: "is" }, { display: "hat", answer: "hat" },
-        { display: "and", answer: "and" }, { display: "pig", answer: "pig" }, { display: "it", answer: "it" },
-        { display: "cup", answer: "cup" }, { display: "bat", answer: "bat" }, { display: "run", answer: "run" },
-        { display: "see", answer: "see" }, { display: "big", answer: "big" }, { display: "red", answer: "red" },
-        { display: "hot", answer: "hot" }, { display: "mom", answer: "mom" }, { display: "dad", answer: "dad" },
-        { display: "bed", answer: "bed" }, { display: "fox", answer: "fox" }, { display: "map", answer: "map" },
-        { display: "net", answer: "net" }, { display: "log", answer: "log" }, { display: "bus", answer: "bus" },
-        { display: "him", answer: "him" }, { display: "we", answer: "we" }, { display: "go", answer: "go" },
-        { display: "my", answer: "my" }, { display: "up", answer: "up" }, { display: "in", answer: "in" }
+        // CVC Words
+        { display: "cat", answer: "cat", hint: "CVC word" },
+        { display: "zag", answer: "zag", hint: "CVC word" },
+        { display: "ham", answer: "ham", hint: "CVC word" },
+        { display: "sap", answer: "sap", hint: "CVC word" },
+        { display: "wax", answer: "wax", hint: "CVC word" },
+        { display: "mad", answer: "mad", hint: "CVC word" },
+        { display: "dad", answer: "dad", hint: "CVC word" },
+        { display: "yam", answer: "yam", hint: "CVC word" },
+        { display: "had", answer: "had", hint: "CVC word" },
+        { display: "has", answer: "has", hint: "CVC word" },
+        { display: "vet", answer: "vet", hint: "CVC word" },
+        { display: "leg", answer: "leg", hint: "CVC word" },
+        { display: "jet", answer: "jet", hint: "CVC word" },
+        { display: "pet", answer: "pet", hint: "CVC word" },
+        { display: "ten", answer: "ten", hint: "CVC word" },
+        { display: "red", answer: "red", hint: "CVC word" },
+        { display: "web", answer: "web", hint: "CVC word" },
+        { display: "met", answer: "met", hint: "CVC word" },
+        { display: "fit", answer: "fit", hint: "CVC word" },
+        { display: "zip", answer: "zip", hint: "CVC word" },
+        { display: "lid", answer: "lid", hint: "CVC word" },
+        { display: "him", answer: "him", hint: "CVC word" },
+        { display: "bin", answer: "bin", hint: "CVC word" },
+        { display: "kit", answer: "kit", hint: "CVC word" },
+        { display: "win", answer: "win", hint: "CVC word" },
+        { display: "rid", answer: "rid", hint: "CVC word" },
+        { display: "got", answer: "got", hint: "CVC word" },
+        { display: "job", answer: "job", hint: "CVC word" },
+        { display: "fox", answer: "fox", hint: "CVC word" },
+        { display: "not", answer: "not", hint: "CVC word" },
+        { display: "pot", answer: "pot", hint: "CVC word" },
+        { display: "sob", answer: "sob", hint: "CVC word" },
+        { display: "cog", answer: "cog", hint: "CVC word" },
+        { display: "pop", answer: "pop", hint: "CVC word" },
+        { display: "hum", answer: "hum", hint: "CVC word" },
+        { display: "tub", answer: "tub", hint: "CVC word" },
+        { display: "jug", answer: "jug", hint: "CVC word" },
+        { display: "cup", answer: "cup", hint: "CVC word" },
+        { display: "run", answer: "run", hint: "CVC word" },
+        { display: "mug", answer: "mug", hint: "CVC word" },
+        { display: "pup", answer: "pup", hint: "CVC word" },
+        // Sight Words
+        { display: "a", answer: "a", hint: "Sight word" },
+        { display: "an", answer: "an", hint: "Sight word" },
+        { display: "and", answer: "and", hint: "Sight word" },
+        { display: "are", answer: "are", hint: "Sight word" },
+        { display: "to", answer: "to", hint: "Sight word" },
+        { display: "my", answer: "my", hint: "Sight word" },
+        { display: "on", answer: "on", hint: "Sight word" },
+        { display: "is", answer: "is", hint: "Sight word" }
     ],
     3: [
-        { display: "The cat is big.", answer: "The cat is big." },
-        { display: "I see a dog.", answer: "I see a dog." },
-        { display: "She has a red hat.", answer: "She has a red hat." },
-        { display: "The sun is hot.", answer: "The sun is hot." },
-        { display: "He can run fast.", answer: "He can run fast." },
-        { display: "We like to play.", answer: "We like to play." },
-        { display: "The bird can fly.", answer: "The bird can fly." },
-        { display: "I am happy today.", answer: "I am happy today." },
-        { display: "Mom has a big bag.", answer: "Mom has a big bag." },
-        { display: "The fish can swim.", answer: "The fish can swim." },
-        { display: "I like my red cup.", answer: "I like my red cup." },
-        { display: "Dad has a big car.", answer: "Dad has a big car." }
+        { display: "The cat has a hot pan.", answer: "The cat has a hot pan.", hint: "Sentence" },
+        { display: "The kid has a big bag.", answer: "The kid has a big bag.", hint: "Sentence" },
+        { display: "Dan has a net.", answer: "Dan has a net.", hint: "Sentence" },
+        { display: "The kid likes to pet a cat.", answer: "The kid likes to pet a cat.", hint: "Sentence" },
+        { display: "Pin is in the tin.", answer: "Pin is in the tin.", hint: "Sentence" },
+        { display: "The fox is in the box.", answer: "The fox is in the box.", hint: "Sentence" },
+        { display: "The man can hop on the rug.", answer: "The man can hop on the rug.", hint: "Sentence" },
+        { display: "The cat bit a big tag.", answer: "The cat bit a big tag.", hint: "Sentence" },
+        { display: "The dog can dig in the sand.", answer: "The dog can dig in the sand.", hint: "Sentence" },
+        { display: "The kid has a pet pig.", answer: "The kid has a pet pig.", hint: "Sentence" },
+        { display: "Ted has a red cap.", answer: "Ted has a red cap.", hint: "Sentence" },
+        { display: "Ben met his pet hen.", answer: "Ben met his pet hen.", hint: "Sentence" },
+        { display: "The man can fix the red van.", answer: "The man can fix the red van.", hint: "Sentence" },
+        { display: "The lid is on the bin.", answer: "The lid is on the bin.", hint: "Sentence" },
+        { display: "The cat ran to the log.", answer: "The cat ran to the log.", hint: "Sentence" },
+        { display: "Sam is my cat.", answer: "Sam is my cat.", hint: "Sentence" },
+        { display: "The cat sat on a mat.", answer: "The cat sat on a mat.", hint: "Sentence" },
+        { display: "Tom had a nap.", answer: "Tom had a nap.", hint: "Sentence" },
+        { display: "A man has a map.", answer: "A man has a map.", hint: "Sentence" },
+        { display: "The hen has a big red hat.", answer: "The hen has a big red hat.", hint: "Sentence" },
+        { display: "The cat is on the bed.", answer: "The cat is on the bed.", hint: "Sentence" },
+        { display: "The pigs are in the pan.", answer: "The pigs are in the pan.", hint: "Sentence" },
+        { display: "The dog can sit on the rug.", answer: "The dog can sit on the rug.", hint: "Sentence" },
+        { display: "The man is at the bus.", answer: "The man is at the bus.", hint: "Sentence" },
+        { display: "The dog has a big bed.", answer: "The dog has a big bed.", hint: "Sentence" },
+        { display: "The hen sat in the sun.", answer: "The hen sat in the sun.", hint: "Sentence" },
+        { display: "The dog can hop and run.", answer: "The dog can hop and run.", hint: "Sentence" },
+        { display: "She eats an egg.", answer: "She eats an egg.", hint: "Sentence" },
+        { display: "The big pig ran in the mud.", answer: "The big pig ran in the mud.", hint: "Sentence" },
+        { display: "The hen sat on a log.", answer: "The hen sat on a log.", hint: "Sentence" }
     ],
     4: [
-        { display: "go", answer: "went" }, { display: "eat", answer: "ate" }, { display: "run", answer: "ran" },
-        { display: "see", answer: "saw" }, { display: "come", answer: "came" }, { display: "give", answer: "gave" },
-        { display: "take", answer: "took" }, { display: "make", answer: "made" }, { display: "say", answer: "said" },
-        { display: "get", answer: "got" }, { display: "do", answer: "did" }, { display: "have", answer: "had" },
-        { display: "be", answer: "was/were" }, { display: "know", answer: "knew" }, { display: "think", answer: "thought" },
-        { display: "tell", answer: "told" }, { display: "become", answer: "became" }, { display: "leave", answer: "left" },
-        { display: "feel", answer: "felt" }, { display: "put", answer: "put" }
+        { display: "walk", answer: "walked", hint: "Past tense" },
+        { display: "talk", answer: "talked", hint: "Past tense" },
+        { display: "wash", answer: "washed", hint: "Past tense" },
+        { display: "play", answer: "played", hint: "Past tense" },
+        { display: "burn", answer: "burned", hint: "Past tense" },
+        { display: "watch", answer: "watched", hint: "Past tense" },
+        { display: "jump", answer: "jumped", hint: "Past tense" },
+        { display: "clean", answer: "cleaned", hint: "Past tense" },
+        { display: "look", answer: "looked", hint: "Past tense" },
+        { display: "wish", answer: "wished", hint: "Past tense" },
+        { display: "cook", answer: "cooked", hint: "Past tense" },
+        { display: "open", answer: "opened", hint: "Past tense" },
+        { display: "ride", answer: "rode", hint: "Past tense" },
+        { display: "read", answer: "read", hint: "Past tense" },
+        { display: "run", answer: "ran", hint: "Past tense" },
+        { display: "cut", answer: "cut", hint: "Past tense" },
+        { display: "come", answer: "came", hint: "Past tense" },
+        { display: "catch", answer: "caught", hint: "Past tense" },
+        { display: "do", answer: "did", hint: "Past tense" },
+        { display: "buy", answer: "bought", hint: "Past tense" },
+        { display: "fly", answer: "flew", hint: "Past tense" },
+        { display: "take", answer: "took", hint: "Past tense" },
+        { display: "speak", answer: "spoke", hint: "Past tense" },
+        { display: "drink", answer: "drank", hint: "Past tense" },
+        { display: "get", answer: "got", hint: "Past tense" },
+        { display: "sleep", answer: "slept", hint: "Past tense" },
+        { display: "put", answer: "put", hint: "Past tense" },
+        { display: "tell", answer: "told", hint: "Past tense" },
+        { display: "go", answer: "went", hint: "Past tense" },
+        { display: "accept", answer: "accepted", hint: "Past tense" },
+        { display: "correct", answer: "corrected", hint: "Past tense" },
+        { display: "dance", answer: "danced", hint: "Past tense" },
+        { display: "cry", answer: "cried", hint: "Past tense" },
+        { display: "answer", answer: "answered", hint: "Past tense" },
+        { display: "rain", answer: "rained", hint: "Past tense" },
+        { display: "pack", answer: "packed", hint: "Past tense" },
+        { display: "finish", answer: "finished", hint: "Past tense" },
+        { display: "listen", answer: "listened", hint: "Past tense" },
+        { display: "enjoy", answer: "enjoyed", hint: "Past tense" },
+        { display: "work", answer: "worked", hint: "Past tense" },
+        { display: "call", answer: "called", hint: "Past tense" },
+        { display: "break", answer: "broke", hint: "Past tense" },
+        { display: "rid", answer: "rid", hint: "Past tense" },
+        { display: "grow", answer: "grew", hint: "Past tense" },
+        { display: "have", answer: "had", hint: "Past tense" },
+        { display: "use", answer: "used", hint: "Past tense" },
+        { display: "find", answer: "found", hint: "Past tense" },
+        { display: "eat", answer: "ate", hint: "Past tense" },
+        { display: "fall", answer: "fell", hint: "Past tense" }
     ]
 };
 
 const GROUP_INFO = {
     1: { name: "Group 1", topic: "Letters & Sounds", instruction: "Say the letter name and sound", time: 120, icon: "🔤" },
-    2: { name: "Group 2", topic: "CVC & Sight Words", instruction: "Read the word aloud", time: 120, icon: "" },
+    2: { name: "Group 2", topic: "CVC & Sight Words", instruction: "Read the word aloud", time: 120, icon: "📖" },
     3: { name: "Group 3", topic: "Short Sentences", instruction: "Read the sentence aloud", time: 180, icon: "💬" },
-    4: { name: "Group 4", topic: "Past Tense", instruction: "Say the past tense", time: 60, icon: "🔄" }
+    4: { name: "Group 4", topic: "Past Tense", instruction: "Say the past tense", time: 120, icon: "🔄" }
 };
 
 // ==================== STATE ====================
@@ -737,8 +799,7 @@ let timer = null;
 function selectGroup(num) {
     selectedGroup = num;
     document.querySelectorAll('.group-card').forEach((card, i) => {
-        card.style.outline = (i + 1 === num) ? '4px solid #667eea' : 'none';
-        card.style.outlineOffset = '3px';
+        card.classList.toggle('selected', i + 1 === num);
     });
 }
 
@@ -753,7 +814,6 @@ function startPractice() {
     const pool = POOLS[selectedGroup];
     const info = GROUP_INFO[selectedGroup];
 
-    // Shuffle and pick questions
     const shuffled = [...pool].sort(() => Math.random() - 0.5);
     const count = Math.min(questionCount, shuffled.length);
     const questions = shuffled.slice(0, count);
@@ -767,7 +827,6 @@ function startPractice() {
         timeLeft: info.time
     };
 
-    // Setup UI
     document.getElementById('ptInfo').textContent = `${info.icon} ${info.name} - ${info.topic}`;
     document.getElementById('homePage').style.display = 'none';
     document.getElementById('practicePage').classList.add('active');
@@ -784,6 +843,7 @@ function loadQuestion() {
 
     document.getElementById('pcNumber').textContent = `Q${idx + 1}`;
     document.getElementById('pcWord').textContent = q.display;
+    document.getElementById('pcHint').textContent = q.hint || '';
     document.getElementById('pcInstruction').textContent = info.instruction;
 
     const progress = (idx / total) * 100;
@@ -805,13 +865,11 @@ function markAnswer(status) {
         document.getElementById('ptScore').textContent = practice.score;
     }
 
-    // Visual feedback
     const card = document.getElementById('practiceCard');
     const colors = { correct: '#10b981', wrong: '#ef4444', skipped: '#f59e0b' };
     card.style.boxShadow = `0 0 0 6px ${colors[status]}, 0 20px 60px rgba(0,0,0,0.3)`;
     setTimeout(() => { card.style.boxShadow = ''; }, 350);
 
-    // Next question or finish
     setTimeout(() => {
         if (idx < practice.questions.length - 1) {
             practice.currentIndex++;
@@ -858,7 +916,7 @@ function finishPractice() {
         emoji = '🌟'; title = 'Excellent!'; message = 'You did amazing! Keep it up!'; scoreClass = 'excellent';
         launchConfetti();
     } else if (pct >= 50) {
-        emoji = '👍'; title = 'Good Job!'; message = 'Nice work! Keep practicing!'; scoreClass = 'good';
+        emoji = ''; title = 'Good Job!'; message = 'Nice work! Keep practicing!'; scoreClass = 'good';
     } else {
         emoji = '💪'; title = 'Keep Trying!'; message = 'Practice makes perfect! Try again!'; scoreClass = 'try-again';
     }
@@ -870,7 +928,6 @@ function finishPractice() {
     document.getElementById('resultScore').className = 'result-score-big ' + scoreClass;
     document.getElementById('resultMessage').textContent = message;
 
-    // Breakdown
     let breakdownHTML = '';
     practice.answers.forEach((a, i) => {
         const cls = a.status === 'correct' ? 'rb-correct' : (a.status === 'wrong' ? 'rb-wrong' : 'rb-skip');
@@ -899,7 +956,6 @@ function retryPractice() {
     startPractice();
 }
 
-// ==================== CONFETTI ====================
 function launchConfetti() {
     const container = document.getElementById('confettiContainer');
     const colors = ['#FF6B6B','#4ECDC4','#45B7D1','#96CEB4','#FFEAA7','#DDA0DD','#FFD700'];
@@ -918,7 +974,6 @@ function launchConfetti() {
     setTimeout(() => container.innerHTML = '', 5000);
 }
 
-// ==================== KEYBOARD ====================
 document.addEventListener('keydown', (e) => {
     if (!practice) return;
     if (e.key === '1' || e.key === 'c' || e.key === 'C') markAnswer('correct');
@@ -927,7 +982,6 @@ document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') exitPractice();
 });
 
-// Init - select group 1 by default
 selectGroup(1);
 </script>
 
