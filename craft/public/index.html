@@ -278,12 +278,12 @@
         .practice-card {
             background: white;
             border-radius: 30px;
-            padding: 50px 30px;
+            padding: 60px 30px;
             box-shadow: 0 20px 60px rgba(0,0,0,0.3);
             text-align: center;
             width: 100%;
-            max-width: 800px;
-            min-height: 300px;
+            max-width: 900px;
+            min-height: 350px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -293,19 +293,19 @@
 
         .pc-number {
             position: absolute;
-            top: 15px;
-            left: 20px;
+            top: 20px;
+            left: 25px;
             background: #f0f0f0;
-            padding: 6px 14px;
+            padding: 8px 16px;
             border-radius: 20px;
             font-weight: 700;
-            font-size: 0.95em;
+            font-size: 1.1em;
             color: #666;
         }
 
         .pc-word {
             font-family: 'Fredoka One', cursive;
-            font-size: 7em;
+            font-size: 9em;
             color: #333;
             word-break: break-word;
             line-height: 1.1;
@@ -313,17 +313,10 @@
         }
 
         .pc-hint {
-            font-size: 1.1em;
+            font-size: 1.2em;
             color: #aaa;
             font-weight: 600;
-            margin-top: 10px;
-        }
-
-        .pc-instruction {
-            font-size: 1.3em;
-            color: #888;
-            font-weight: 600;
-            margin-top: 5px;
+            margin-top: 15px;
         }
 
         .practice-actions {
@@ -333,7 +326,7 @@
             margin-top: 20px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
             width: 100%;
-            max-width: 800px;
+            max-width: 900px;
         }
 
         .practice-actions h4 { text-align: center; margin-bottom: 15px; font-size: 1.1em; color: #333; }
@@ -487,7 +480,7 @@
             .group-card { padding: 18px 10px; }
             .group-card .card-icon { font-size: 2.2em; }
             .group-card h3 { font-size: 0.95em; }
-            .pc-word { font-size: 4.5em; }
+            .pc-word { font-size: 5em; }
             .action-btn { min-width: 120px; padding: 14px 20px; font-size: 1em; }
             .home-header h1 { font-size: 1.6em; }
         }
@@ -497,9 +490,9 @@
 
 <div class="bg-shapes">
     <span>⭐</span>
-    <span>📚</span>
-    <span>✏️</span>
     <span></span>
+    <span>✏️</span>
+    <span>🌟</span>
     <span></span>
 </div>
 
@@ -581,7 +574,6 @@
             <div class="pc-number" id="pcNumber">Q1</div>
             <div class="pc-word" id="pcWord">A</div>
             <div class="pc-hint" id="pcHint"></div>
-            <div class="pc-instruction" id="pcInstruction">Say the letter name and sound</div>
         </div>
 
         <div class="practice-actions">
@@ -589,7 +581,7 @@
             <div class="action-btns">
                 <button class="action-btn correct-btn" onclick="markAnswer('correct')">✅ Correct</button>
                 <button class="action-btn wrong-btn" onclick="markAnswer('wrong')">❌ Wrong</button>
-                <button class="action-btn skip-btn" onclick="markAnswer('skipped')">️ Skip</button>
+                <button class="action-btn skip-btn" onclick="markAnswer('skipped')">⏭️ Skip</button>
             </div>
         </div>
     </div>
@@ -605,7 +597,7 @@
         <div class="result-message" id="resultMessage">You did amazing!</div>
         <div class="result-breakdown" id="resultBreakdown"></div>
         <div class="result-btns">
-            <button class="result-btn home-btn" onclick="goHome()"> Home</button>
+            <button class="result-btn home-btn" onclick="goHome()">🏠 Home</button>
             <button class="result-btn retry-btn" onclick="retryPractice()">🔄 Try Again</button>
         </div>
     </div>
@@ -645,7 +637,6 @@ const POOLS = {
         { display: "Z z", answer: "Z", hint: "Letter Z" }
     ],
     2: [
-        // CVC Words
         { display: "cat", answer: "cat", hint: "CVC word" },
         { display: "zag", answer: "zag", hint: "CVC word" },
         { display: "ham", answer: "ham", hint: "CVC word" },
@@ -687,7 +678,6 @@ const POOLS = {
         { display: "run", answer: "run", hint: "CVC word" },
         { display: "mug", answer: "mug", hint: "CVC word" },
         { display: "pup", answer: "pup", hint: "CVC word" },
-        // Sight Words
         { display: "a", answer: "a", hint: "Sight word" },
         { display: "an", answer: "an", hint: "Sight word" },
         { display: "and", answer: "and", hint: "Sight word" },
@@ -783,10 +773,10 @@ const POOLS = {
 };
 
 const GROUP_INFO = {
-    1: { name: "Group 1", topic: "Letters & Sounds", instruction: "Say the letter name and sound", time: 120, icon: "🔤" },
-    2: { name: "Group 2", topic: "CVC & Sight Words", instruction: "Read the word aloud", time: 120, icon: "📖" },
-    3: { name: "Group 3", topic: "Short Sentences", instruction: "Read the sentence aloud", time: 180, icon: "💬" },
-    4: { name: "Group 4", topic: "Past Tense", instruction: "Say the past tense", time: 120, icon: "🔄" }
+    1: { name: "Group 1", topic: "Letters & Sounds", time: 120, icon: "🔤" },
+    2: { name: "Group 2", topic: "CVC & Sight Words", time: 120, icon: "" },
+    3: { name: "Group 3", topic: "Short Sentences", time: 180, icon: "💬" },
+    4: { name: "Group 4", topic: "Past Tense", time: 120, icon: "🔄" }
 };
 
 // ==================== STATE ====================
@@ -831,20 +821,25 @@ function startPractice() {
     document.getElementById('homePage').style.display = 'none';
     document.getElementById('practicePage').classList.add('active');
 
+    // Request fullscreen
+    if (document.documentElement.requestFullscreen) {
+        document.documentElement.requestFullscreen().catch(err => {
+            console.log('Fullscreen not available:', err);
+        });
+    }
+
     loadQuestion();
     startTimer();
 }
 
 function loadQuestion() {
     const q = practice.questions[practice.currentIndex];
-    const info = GROUP_INFO[practice.group];
     const total = practice.questions.length;
     const idx = practice.currentIndex;
 
     document.getElementById('pcNumber').textContent = `Q${idx + 1}`;
     document.getElementById('pcWord').textContent = q.display;
     document.getElementById('pcHint').textContent = q.hint || '';
-    document.getElementById('pcInstruction').textContent = info.instruction;
 
     const progress = (idx / total) * 100;
     document.getElementById('ptProgress').style.width = progress + '%';
@@ -903,6 +898,12 @@ function updateTimerDisplay() {
 
 function finishPractice() {
     clearInterval(timer);
+    
+    // Exit fullscreen
+    if (document.exitFullscreen) {
+        document.exitFullscreen().catch(err => console.log('Exit fullscreen error'));
+    }
+
     document.getElementById('practicePage').classList.remove('active');
     document.getElementById('resultPage').classList.add('active');
 
@@ -916,7 +917,7 @@ function finishPractice() {
         emoji = '🌟'; title = 'Excellent!'; message = 'You did amazing! Keep it up!'; scoreClass = 'excellent';
         launchConfetti();
     } else if (pct >= 50) {
-        emoji = ''; title = 'Good Job!'; message = 'Nice work! Keep practicing!'; scoreClass = 'good';
+        emoji = '👍'; title = 'Good Job!'; message = 'Nice work! Keep practicing!'; scoreClass = 'good';
     } else {
         emoji = '💪'; title = 'Keep Trying!'; message = 'Practice makes perfect! Try again!'; scoreClass = 'try-again';
     }
@@ -940,6 +941,11 @@ function finishPractice() {
 function exitPractice() {
     if (!confirm('Exit practice? Your progress will be lost.')) return;
     clearInterval(timer);
+    
+    if (document.exitFullscreen) {
+        document.exitFullscreen().catch(err => console.log('Exit fullscreen error'));
+    }
+
     document.getElementById('practicePage').classList.remove('active');
     document.getElementById('homePage').style.display = 'flex';
     practice = null;
