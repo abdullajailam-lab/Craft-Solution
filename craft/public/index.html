@@ -54,10 +54,7 @@
             flex-direction: column;
         }
 
-        .home-header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
+        .home-header { text-align: center; margin-bottom: 30px; }
 
         .home-header h1 {
             font-family: 'Fredoka One', cursive;
@@ -66,18 +63,8 @@
             text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
         }
 
-        .home-header h1 .emoji {
-            display: block;
-            font-size: 0.6em;
-            margin-bottom: 5px;
-        }
-
-        .home-header p {
-            color: rgba(255,255,255,0.9);
-            font-size: 1.1em;
-            font-weight: 600;
-            margin-top: 8px;
-        }
+        .home-header h1 .emoji { display: block; font-size: 0.6em; margin-bottom: 5px; }
+        .home-header p { color: rgba(255,255,255,0.9); font-size: 1.1em; font-weight: 600; margin-top: 8px; }
 
         .group-cards {
             display: grid;
@@ -94,17 +81,10 @@
             cursor: pointer;
             transition: all 0.3s;
             box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-            position: relative;
-            overflow: hidden;
         }
 
-        .group-card:hover {
-            transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 12px 35px rgba(0,0,0,0.25);
-        }
-
+        .group-card:hover { transform: translateY(-5px) scale(1.02); box-shadow: 0 12px 35px rgba(0,0,0,0.25); }
         .group-card:active { transform: scale(0.98); }
-
         .group-card .card-icon { font-size: 3em; margin-bottom: 10px; }
         .group-card h3 { font-family: 'Fredoka One', cursive; font-size: 1.1em; margin-bottom: 5px; }
         .group-card .card-topic { font-size: 0.8em; color: #888; font-weight: 600; }
@@ -119,10 +99,7 @@
         .group-card:nth-child(4) { border-top: 5px solid #96CEB4; }
         .group-card:nth-child(4) h3 { color: #96CEB4; }
 
-        .group-card.selected {
-            outline: 4px solid #667eea;
-            outline-offset: 3px;
-        }
+        .group-card.selected { outline: 4px solid #667eea; outline-offset: 3px; }
 
         .settings-bar {
             background: rgba(255,255,255,0.95);
@@ -134,12 +111,7 @@
 
         .settings-bar h4 { font-size: 1em; margin-bottom: 12px; color: #333; }
 
-        .settings-row {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
+        .settings-row { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
 
         .setting-btn {
             padding: 10px 20px;
@@ -154,12 +126,7 @@
         }
 
         .setting-btn:hover { border-color: #667eea; }
-
-        .setting-btn.active {
-            border-color: #667eea;
-            background: #667eea;
-            color: white;
-        }
+        .setting-btn.active { border-color: #667eea; background: #667eea; color: white; }
 
         .start-btn {
             display: block;
@@ -177,19 +144,10 @@
             margin-bottom: 15px;
         }
 
-        .start-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(238,90,90,0.5);
-        }
-
+        .start-btn:hover { transform: translateY(-3px); box-shadow: 0 12px 35px rgba(238,90,90,0.5); }
         .start-btn:active { transform: scale(0.98); }
 
-        .footer-text {
-            text-align: center;
-            color: rgba(255,255,255,0.7);
-            font-size: 0.9em;
-            font-weight: 600;
-        }
+        .footer-text { text-align: center; color: rgba(255,255,255,0.7); font-size: 0.9em; font-weight: 600; }
 
         /* Practice Page */
         .practice-page {
@@ -215,16 +173,9 @@
         }
 
         .practice-topbar .pt-info { font-weight: 700; color: #333; font-size: 1em; }
-
         .practice-topbar .pt-stats { display: flex; gap: 12px; }
 
-        .pt-stat {
-            padding: 8px 16px;
-            border-radius: 12px;
-            font-weight: 800;
-            font-size: 1.1em;
-        }
-
+        .pt-stat { padding: 8px 16px; border-radius: 12px; font-weight: 800; font-size: 1.1em; }
         .pt-timer { background: #fef3c7; border: 2px solid #f59e0b; color: #92400e; }
         .pt-timer.warning { background: #fee2e2; border-color: #ef4444; color: #991b1b; animation: pulse 1s infinite; }
 
@@ -243,13 +194,7 @@
             gap: 12px;
         }
 
-        .pt-progress-bar {
-            flex: 1;
-            height: 12px;
-            background: #e0e0e0;
-            border-radius: 10px;
-            overflow: hidden;
-        }
+        .pt-progress-bar { flex: 1; height: 12px; background: #e0e0e0; border-radius: 10px; overflow: hidden; }
 
         .pt-progress-fill {
             height: 100%;
@@ -258,13 +203,7 @@
             transition: width 0.4s;
         }
 
-        .pt-progress-text {
-            font-weight: 700;
-            font-size: 0.95em;
-            color: #333;
-            min-width: 120px;
-            text-align: right;
-        }
+        .pt-progress-text { font-weight: 700; font-size: 0.95em; color: #333; min-width: 120px; text-align: right; }
 
         .practice-main {
             flex: 1;
@@ -273,17 +212,18 @@
             justify-content: center;
             align-items: center;
             padding: 20px;
+            overflow: hidden;
         }
 
         .practice-card {
             background: white;
             border-radius: 30px;
-            padding: 60px 30px;
+            padding: 40px 30px;
             box-shadow: 0 20px 60px rgba(0,0,0,0.3);
             text-align: center;
-            width: 100%;
-            max-width: 900px;
-            min-height: 350px;
+            width: 95%;
+            max-width: 1100px;
+            min-height: 300px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -303,14 +243,25 @@
             color: #666;
         }
 
+        /* Dynamic font sizes for different content types */
         .pc-word {
             font-family: 'Fredoka One', cursive;
-            font-size: 9em;
             color: #333;
             word-break: break-word;
-            line-height: 1.1;
+            line-height: 1.2;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            width: 100%;
+            padding: 0 20px;
         }
+
+        /* Letter size - very big */
+        .pc-word.size-letter { font-size: 10em; }
+
+        /* Word size - big */
+        .pc-word.size-word { font-size: 7em; }
+
+        /* Sentence size - medium, fits full sentence */
+        .pc-word.size-sentence { font-size: 4em; }
 
         .pc-hint {
             font-size: 1.2em;
@@ -325,18 +276,13 @@
             padding: 20px;
             margin-top: 20px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            width: 100%;
-            max-width: 900px;
+            width: 95%;
+            max-width: 1100px;
         }
 
         .practice-actions h4 { text-align: center; margin-bottom: 15px; font-size: 1.1em; color: #333; }
 
-        .action-btns {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
+        .action-btns { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
 
         .action-btn {
             padding: 18px 35px;
@@ -406,24 +352,14 @@
         .result-title { font-family: 'Fredoka One', cursive; font-size: 1.8em; color: #333; margin-bottom: 5px; }
         .result-subtitle { color: #888; font-weight: 600; margin-bottom: 20px; }
 
-        .result-score-big {
-            font-family: 'Fredoka One', cursive;
-            font-size: 4em;
-            margin: 15px 0;
-        }
-
+        .result-score-big { font-family: 'Fredoka One', cursive; font-size: 4em; margin: 15px 0; }
         .result-score-big.excellent { color: #10b981; }
         .result-score-big.good { color: #f59e0b; }
         .result-score-big.try-again { color: #ef4444; }
 
         .result-message { font-size: 1.2em; font-weight: 700; margin-bottom: 25px; }
 
-        .result-breakdown {
-            text-align: left;
-            margin-bottom: 25px;
-            max-height: 200px;
-            overflow-y: auto;
-        }
+        .result-breakdown { text-align: left; margin-bottom: 25px; max-height: 200px; overflow-y: auto; }
 
         .rb-item {
             display: flex;
@@ -475,14 +411,46 @@
             100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
         }
 
-        @media (max-width: 500px) {
+        /* ===== MOBILE RESPONSIVE ===== */
+        @media (max-width: 768px) {
             .group-cards { grid-template-columns: 1fr 1fr; gap: 10px; }
             .group-card { padding: 18px 10px; }
             .group-card .card-icon { font-size: 2.2em; }
             .group-card h3 { font-size: 0.95em; }
-            .pc-word { font-size: 5em; }
-            .action-btn { min-width: 120px; padding: 14px 20px; font-size: 1em; }
             .home-header h1 { font-size: 1.6em; }
+
+            /* Mobile font sizes - smaller but still readable */
+            .pc-word.size-letter { font-size: 7em; }
+            .pc-word.size-word { font-size: 5em; }
+            .pc-word.size-sentence { font-size: 2.5em; }
+
+            .practice-card { padding: 30px 20px; min-height: 250px; }
+            .action-btn { min-width: 120px; padding: 14px 20px; font-size: 1em; }
+            .practice-actions { padding: 15px; }
+            .pt-stat { padding: 6px 12px; font-size: 0.95em; }
+        }
+
+        @media (max-width: 480px) {
+            /* Very small phones */
+            .pc-word.size-letter { font-size: 5em; }
+            .pc-word.size-word { font-size: 3.5em; }
+            .pc-word.size-sentence { font-size: 1.8em; }
+
+            .practice-card { padding: 25px 15px; min-height: 200px; border-radius: 20px; }
+            .action-btn { min-width: 100px; padding: 12px 16px; font-size: 0.9em; }
+            .action-btns { gap: 8px; }
+            .pc-number { top: 10px; left: 10px; font-size: 0.9em; padding: 6px 12px; }
+            .exit-btn { top: 8px; right: 10px; width: 35px; height: 35px; font-size: 1.1em; }
+        }
+
+        /* Landscape mode on phones */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .practice-card { min-height: 180px; padding: 20px; }
+            .pc-word.size-letter { font-size: 5em; }
+            .pc-word.size-word { font-size: 3.5em; }
+            .pc-word.size-sentence { font-size: 1.8em; }
+            .practice-actions { padding: 10px; margin-top: 10px; }
+            .action-btn { padding: 10px 20px; font-size: 0.9em; min-width: 100px; }
         }
     </style>
 </head>
@@ -490,10 +458,10 @@
 
 <div class="bg-shapes">
     <span>⭐</span>
-    <span></span>
+    <span>📚</span>
     <span>✏️</span>
-    <span>🌟</span>
     <span></span>
+    <span>📖</span>
 </div>
 
 <!-- HOME PAGE -->
@@ -609,166 +577,166 @@
 // ==================== ACTUAL QUESTION POOLS FROM PDFs ====================
 const POOLS = {
     1: [
-        { display: "A a", answer: "A", hint: "Letter A" },
-        { display: "B b", answer: "B", hint: "Letter B" },
-        { display: "C c", answer: "C", hint: "Letter C" },
-        { display: "D d", answer: "D", hint: "Letter D" },
-        { display: "E e", answer: "E", hint: "Letter E" },
-        { display: "F f", answer: "F", hint: "Letter F" },
-        { display: "G g", answer: "G", hint: "Letter G" },
-        { display: "H h", answer: "H", hint: "Letter H" },
-        { display: "I i", answer: "I", hint: "Letter I" },
-        { display: "J j", answer: "J", hint: "Letter J" },
-        { display: "K k", answer: "K", hint: "Letter K" },
-        { display: "L l", answer: "L", hint: "Letter L" },
-        { display: "M m", answer: "M", hint: "Letter M" },
-        { display: "N n", answer: "N", hint: "Letter N" },
-        { display: "O o", answer: "O", hint: "Letter O" },
-        { display: "P p", answer: "P", hint: "Letter P" },
-        { display: "Q q", answer: "Q", hint: "Letter Q" },
-        { display: "R r", answer: "R", hint: "Letter R" },
-        { display: "S s", answer: "S", hint: "Letter S" },
-        { display: "T t", answer: "T", hint: "Letter T" },
-        { display: "U u", answer: "U", hint: "Letter U" },
-        { display: "V v", answer: "V", hint: "Letter V" },
-        { display: "W w", answer: "W", hint: "Letter W" },
-        { display: "X x", answer: "X", hint: "Letter X" },
-        { display: "Y y", answer: "Y", hint: "Letter Y" },
-        { display: "Z z", answer: "Z", hint: "Letter Z" }
+        { display: "A a", answer: "A", hint: "Letter A", type: "letter" },
+        { display: "B b", answer: "B", hint: "Letter B", type: "letter" },
+        { display: "C c", answer: "C", hint: "Letter C", type: "letter" },
+        { display: "D d", answer: "D", hint: "Letter D", type: "letter" },
+        { display: "E e", answer: "E", hint: "Letter E", type: "letter" },
+        { display: "F f", answer: "F", hint: "Letter F", type: "letter" },
+        { display: "G g", answer: "G", hint: "Letter G", type: "letter" },
+        { display: "H h", answer: "H", hint: "Letter H", type: "letter" },
+        { display: "I i", answer: "I", hint: "Letter I", type: "letter" },
+        { display: "J j", answer: "J", hint: "Letter J", type: "letter" },
+        { display: "K k", answer: "K", hint: "Letter K", type: "letter" },
+        { display: "L l", answer: "L", hint: "Letter L", type: "letter" },
+        { display: "M m", answer: "M", hint: "Letter M", type: "letter" },
+        { display: "N n", answer: "N", hint: "Letter N", type: "letter" },
+        { display: "O o", answer: "O", hint: "Letter O", type: "letter" },
+        { display: "P p", answer: "P", hint: "Letter P", type: "letter" },
+        { display: "Q q", answer: "Q", hint: "Letter Q", type: "letter" },
+        { display: "R r", answer: "R", hint: "Letter R", type: "letter" },
+        { display: "S s", answer: "S", hint: "Letter S", type: "letter" },
+        { display: "T t", answer: "T", hint: "Letter T", type: "letter" },
+        { display: "U u", answer: "U", hint: "Letter U", type: "letter" },
+        { display: "V v", answer: "V", hint: "Letter V", type: "letter" },
+        { display: "W w", answer: "W", hint: "Letter W", type: "letter" },
+        { display: "X x", answer: "X", hint: "Letter X", type: "letter" },
+        { display: "Y y", answer: "Y", hint: "Letter Y", type: "letter" },
+        { display: "Z z", answer: "Z", hint: "Letter Z", type: "letter" }
     ],
     2: [
-        { display: "cat", answer: "cat", hint: "CVC word" },
-        { display: "zag", answer: "zag", hint: "CVC word" },
-        { display: "ham", answer: "ham", hint: "CVC word" },
-        { display: "sap", answer: "sap", hint: "CVC word" },
-        { display: "wax", answer: "wax", hint: "CVC word" },
-        { display: "mad", answer: "mad", hint: "CVC word" },
-        { display: "dad", answer: "dad", hint: "CVC word" },
-        { display: "yam", answer: "yam", hint: "CVC word" },
-        { display: "had", answer: "had", hint: "CVC word" },
-        { display: "has", answer: "has", hint: "CVC word" },
-        { display: "vet", answer: "vet", hint: "CVC word" },
-        { display: "leg", answer: "leg", hint: "CVC word" },
-        { display: "jet", answer: "jet", hint: "CVC word" },
-        { display: "pet", answer: "pet", hint: "CVC word" },
-        { display: "ten", answer: "ten", hint: "CVC word" },
-        { display: "red", answer: "red", hint: "CVC word" },
-        { display: "web", answer: "web", hint: "CVC word" },
-        { display: "met", answer: "met", hint: "CVC word" },
-        { display: "fit", answer: "fit", hint: "CVC word" },
-        { display: "zip", answer: "zip", hint: "CVC word" },
-        { display: "lid", answer: "lid", hint: "CVC word" },
-        { display: "him", answer: "him", hint: "CVC word" },
-        { display: "bin", answer: "bin", hint: "CVC word" },
-        { display: "kit", answer: "kit", hint: "CVC word" },
-        { display: "win", answer: "win", hint: "CVC word" },
-        { display: "rid", answer: "rid", hint: "CVC word" },
-        { display: "got", answer: "got", hint: "CVC word" },
-        { display: "job", answer: "job", hint: "CVC word" },
-        { display: "fox", answer: "fox", hint: "CVC word" },
-        { display: "not", answer: "not", hint: "CVC word" },
-        { display: "pot", answer: "pot", hint: "CVC word" },
-        { display: "sob", answer: "sob", hint: "CVC word" },
-        { display: "cog", answer: "cog", hint: "CVC word" },
-        { display: "pop", answer: "pop", hint: "CVC word" },
-        { display: "hum", answer: "hum", hint: "CVC word" },
-        { display: "tub", answer: "tub", hint: "CVC word" },
-        { display: "jug", answer: "jug", hint: "CVC word" },
-        { display: "cup", answer: "cup", hint: "CVC word" },
-        { display: "run", answer: "run", hint: "CVC word" },
-        { display: "mug", answer: "mug", hint: "CVC word" },
-        { display: "pup", answer: "pup", hint: "CVC word" },
-        { display: "a", answer: "a", hint: "Sight word" },
-        { display: "an", answer: "an", hint: "Sight word" },
-        { display: "and", answer: "and", hint: "Sight word" },
-        { display: "are", answer: "are", hint: "Sight word" },
-        { display: "to", answer: "to", hint: "Sight word" },
-        { display: "my", answer: "my", hint: "Sight word" },
-        { display: "on", answer: "on", hint: "Sight word" },
-        { display: "is", answer: "is", hint: "Sight word" }
+        { display: "cat", answer: "cat", hint: "CVC word", type: "word" },
+        { display: "zag", answer: "zag", hint: "CVC word", type: "word" },
+        { display: "ham", answer: "ham", hint: "CVC word", type: "word" },
+        { display: "sap", answer: "sap", hint: "CVC word", type: "word" },
+        { display: "wax", answer: "wax", hint: "CVC word", type: "word" },
+        { display: "mad", answer: "mad", hint: "CVC word", type: "word" },
+        { display: "dad", answer: "dad", hint: "CVC word", type: "word" },
+        { display: "yam", answer: "yam", hint: "CVC word", type: "word" },
+        { display: "had", answer: "had", hint: "CVC word", type: "word" },
+        { display: "has", answer: "has", hint: "CVC word", type: "word" },
+        { display: "vet", answer: "vet", hint: "CVC word", type: "word" },
+        { display: "leg", answer: "leg", hint: "CVC word", type: "word" },
+        { display: "jet", answer: "jet", hint: "CVC word", type: "word" },
+        { display: "pet", answer: "pet", hint: "CVC word", type: "word" },
+        { display: "ten", answer: "ten", hint: "CVC word", type: "word" },
+        { display: "red", answer: "red", hint: "CVC word", type: "word" },
+        { display: "web", answer: "web", hint: "CVC word", type: "word" },
+        { display: "met", answer: "met", hint: "CVC word", type: "word" },
+        { display: "fit", answer: "fit", hint: "CVC word", type: "word" },
+        { display: "zip", answer: "zip", hint: "CVC word", type: "word" },
+        { display: "lid", answer: "lid", hint: "CVC word", type: "word" },
+        { display: "him", answer: "him", hint: "CVC word", type: "word" },
+        { display: "bin", answer: "bin", hint: "CVC word", type: "word" },
+        { display: "kit", answer: "kit", hint: "CVC word", type: "word" },
+        { display: "win", answer: "win", hint: "CVC word", type: "word" },
+        { display: "rid", answer: "rid", hint: "CVC word", type: "word" },
+        { display: "got", answer: "got", hint: "CVC word", type: "word" },
+        { display: "job", answer: "job", hint: "CVC word", type: "word" },
+        { display: "fox", answer: "fox", hint: "CVC word", type: "word" },
+        { display: "not", answer: "not", hint: "CVC word", type: "word" },
+        { display: "pot", answer: "pot", hint: "CVC word", type: "word" },
+        { display: "sob", answer: "sob", hint: "CVC word", type: "word" },
+        { display: "cog", answer: "cog", hint: "CVC word", type: "word" },
+        { display: "pop", answer: "pop", hint: "CVC word", type: "word" },
+        { display: "hum", answer: "hum", hint: "CVC word", type: "word" },
+        { display: "tub", answer: "tub", hint: "CVC word", type: "word" },
+        { display: "jug", answer: "jug", hint: "CVC word", type: "word" },
+        { display: "cup", answer: "cup", hint: "CVC word", type: "word" },
+        { display: "run", answer: "run", hint: "CVC word", type: "word" },
+        { display: "mug", answer: "mug", hint: "CVC word", type: "word" },
+        { display: "pup", answer: "pup", hint: "CVC word", type: "word" },
+        { display: "a", answer: "a", hint: "Sight word", type: "word" },
+        { display: "an", answer: "an", hint: "Sight word", type: "word" },
+        { display: "and", answer: "and", hint: "Sight word", type: "word" },
+        { display: "are", answer: "are", hint: "Sight word", type: "word" },
+        { display: "to", answer: "to", hint: "Sight word", type: "word" },
+        { display: "my", answer: "my", hint: "Sight word", type: "word" },
+        { display: "on", answer: "on", hint: "Sight word", type: "word" },
+        { display: "is", answer: "is", hint: "Sight word", type: "word" }
     ],
     3: [
-        { display: "The cat has a hot pan.", answer: "The cat has a hot pan.", hint: "Sentence" },
-        { display: "The kid has a big bag.", answer: "The kid has a big bag.", hint: "Sentence" },
-        { display: "Dan has a net.", answer: "Dan has a net.", hint: "Sentence" },
-        { display: "The kid likes to pet a cat.", answer: "The kid likes to pet a cat.", hint: "Sentence" },
-        { display: "Pin is in the tin.", answer: "Pin is in the tin.", hint: "Sentence" },
-        { display: "The fox is in the box.", answer: "The fox is in the box.", hint: "Sentence" },
-        { display: "The man can hop on the rug.", answer: "The man can hop on the rug.", hint: "Sentence" },
-        { display: "The cat bit a big tag.", answer: "The cat bit a big tag.", hint: "Sentence" },
-        { display: "The dog can dig in the sand.", answer: "The dog can dig in the sand.", hint: "Sentence" },
-        { display: "The kid has a pet pig.", answer: "The kid has a pet pig.", hint: "Sentence" },
-        { display: "Ted has a red cap.", answer: "Ted has a red cap.", hint: "Sentence" },
-        { display: "Ben met his pet hen.", answer: "Ben met his pet hen.", hint: "Sentence" },
-        { display: "The man can fix the red van.", answer: "The man can fix the red van.", hint: "Sentence" },
-        { display: "The lid is on the bin.", answer: "The lid is on the bin.", hint: "Sentence" },
-        { display: "The cat ran to the log.", answer: "The cat ran to the log.", hint: "Sentence" },
-        { display: "Sam is my cat.", answer: "Sam is my cat.", hint: "Sentence" },
-        { display: "The cat sat on a mat.", answer: "The cat sat on a mat.", hint: "Sentence" },
-        { display: "Tom had a nap.", answer: "Tom had a nap.", hint: "Sentence" },
-        { display: "A man has a map.", answer: "A man has a map.", hint: "Sentence" },
-        { display: "The hen has a big red hat.", answer: "The hen has a big red hat.", hint: "Sentence" },
-        { display: "The cat is on the bed.", answer: "The cat is on the bed.", hint: "Sentence" },
-        { display: "The pigs are in the pan.", answer: "The pigs are in the pan.", hint: "Sentence" },
-        { display: "The dog can sit on the rug.", answer: "The dog can sit on the rug.", hint: "Sentence" },
-        { display: "The man is at the bus.", answer: "The man is at the bus.", hint: "Sentence" },
-        { display: "The dog has a big bed.", answer: "The dog has a big bed.", hint: "Sentence" },
-        { display: "The hen sat in the sun.", answer: "The hen sat in the sun.", hint: "Sentence" },
-        { display: "The dog can hop and run.", answer: "The dog can hop and run.", hint: "Sentence" },
-        { display: "She eats an egg.", answer: "She eats an egg.", hint: "Sentence" },
-        { display: "The big pig ran in the mud.", answer: "The big pig ran in the mud.", hint: "Sentence" },
-        { display: "The hen sat on a log.", answer: "The hen sat on a log.", hint: "Sentence" }
+        { display: "The cat has a hot pan.", answer: "The cat has a hot pan.", hint: "Sentence", type: "sentence" },
+        { display: "The kid has a big bag.", answer: "The kid has a big bag.", hint: "Sentence", type: "sentence" },
+        { display: "Dan has a net.", answer: "Dan has a net.", hint: "Sentence", type: "sentence" },
+        { display: "The kid likes to pet a cat.", answer: "The kid likes to pet a cat.", hint: "Sentence", type: "sentence" },
+        { display: "Pin is in the tin.", answer: "Pin is in the tin.", hint: "Sentence", type: "sentence" },
+        { display: "The fox is in the box.", answer: "The fox is in the box.", hint: "Sentence", type: "sentence" },
+        { display: "The man can hop on the rug.", answer: "The man can hop on the rug.", hint: "Sentence", type: "sentence" },
+        { display: "The cat bit a big tag.", answer: "The cat bit a big tag.", hint: "Sentence", type: "sentence" },
+        { display: "The dog can dig in the sand.", answer: "The dog can dig in the sand.", hint: "Sentence", type: "sentence" },
+        { display: "The kid has a pet pig.", answer: "The kid has a pet pig.", hint: "Sentence", type: "sentence" },
+        { display: "Ted has a red cap.", answer: "Ted has a red cap.", hint: "Sentence", type: "sentence" },
+        { display: "Ben met his pet hen.", answer: "Ben met his pet hen.", hint: "Sentence", type: "sentence" },
+        { display: "The man can fix the red van.", answer: "The man can fix the red van.", hint: "Sentence", type: "sentence" },
+        { display: "The lid is on the bin.", answer: "The lid is on the bin.", hint: "Sentence", type: "sentence" },
+        { display: "The cat ran to the log.", answer: "The cat ran to the log.", hint: "Sentence", type: "sentence" },
+        { display: "Sam is my cat.", answer: "Sam is my cat.", hint: "Sentence", type: "sentence" },
+        { display: "The cat sat on a mat.", answer: "The cat sat on a mat.", hint: "Sentence", type: "sentence" },
+        { display: "Tom had a nap.", answer: "Tom had a nap.", hint: "Sentence", type: "sentence" },
+        { display: "A man has a map.", answer: "A man has a map.", hint: "Sentence", type: "sentence" },
+        { display: "The hen has a big red hat.", answer: "The hen has a big red hat.", hint: "Sentence", type: "sentence" },
+        { display: "The cat is on the bed.", answer: "The cat is on the bed.", hint: "Sentence", type: "sentence" },
+        { display: "The pigs are in the pan.", answer: "The pigs are in the pan.", hint: "Sentence", type: "sentence" },
+        { display: "The dog can sit on the rug.", answer: "The dog can sit on the rug.", hint: "Sentence", type: "sentence" },
+        { display: "The man is at the bus.", answer: "The man is at the bus.", hint: "Sentence", type: "sentence" },
+        { display: "The dog has a big bed.", answer: "The dog has a big bed.", hint: "Sentence", type: "sentence" },
+        { display: "The hen sat in the sun.", answer: "The hen sat in the sun.", hint: "Sentence", type: "sentence" },
+        { display: "The dog can hop and run.", answer: "The dog can hop and run.", hint: "Sentence", type: "sentence" },
+        { display: "She eats an egg.", answer: "She eats an egg.", hint: "Sentence", type: "sentence" },
+        { display: "The big pig ran in the mud.", answer: "The big pig ran in the mud.", hint: "Sentence", type: "sentence" },
+        { display: "The hen sat on a log.", answer: "The hen sat on a log.", hint: "Sentence", type: "sentence" }
     ],
     4: [
-        { display: "walk", answer: "walked", hint: "Past tense" },
-        { display: "talk", answer: "talked", hint: "Past tense" },
-        { display: "wash", answer: "washed", hint: "Past tense" },
-        { display: "play", answer: "played", hint: "Past tense" },
-        { display: "burn", answer: "burned", hint: "Past tense" },
-        { display: "watch", answer: "watched", hint: "Past tense" },
-        { display: "jump", answer: "jumped", hint: "Past tense" },
-        { display: "clean", answer: "cleaned", hint: "Past tense" },
-        { display: "look", answer: "looked", hint: "Past tense" },
-        { display: "wish", answer: "wished", hint: "Past tense" },
-        { display: "cook", answer: "cooked", hint: "Past tense" },
-        { display: "open", answer: "opened", hint: "Past tense" },
-        { display: "ride", answer: "rode", hint: "Past tense" },
-        { display: "read", answer: "read", hint: "Past tense" },
-        { display: "run", answer: "ran", hint: "Past tense" },
-        { display: "cut", answer: "cut", hint: "Past tense" },
-        { display: "come", answer: "came", hint: "Past tense" },
-        { display: "catch", answer: "caught", hint: "Past tense" },
-        { display: "do", answer: "did", hint: "Past tense" },
-        { display: "buy", answer: "bought", hint: "Past tense" },
-        { display: "fly", answer: "flew", hint: "Past tense" },
-        { display: "take", answer: "took", hint: "Past tense" },
-        { display: "speak", answer: "spoke", hint: "Past tense" },
-        { display: "drink", answer: "drank", hint: "Past tense" },
-        { display: "get", answer: "got", hint: "Past tense" },
-        { display: "sleep", answer: "slept", hint: "Past tense" },
-        { display: "put", answer: "put", hint: "Past tense" },
-        { display: "tell", answer: "told", hint: "Past tense" },
-        { display: "go", answer: "went", hint: "Past tense" },
-        { display: "accept", answer: "accepted", hint: "Past tense" },
-        { display: "correct", answer: "corrected", hint: "Past tense" },
-        { display: "dance", answer: "danced", hint: "Past tense" },
-        { display: "cry", answer: "cried", hint: "Past tense" },
-        { display: "answer", answer: "answered", hint: "Past tense" },
-        { display: "rain", answer: "rained", hint: "Past tense" },
-        { display: "pack", answer: "packed", hint: "Past tense" },
-        { display: "finish", answer: "finished", hint: "Past tense" },
-        { display: "listen", answer: "listened", hint: "Past tense" },
-        { display: "enjoy", answer: "enjoyed", hint: "Past tense" },
-        { display: "work", answer: "worked", hint: "Past tense" },
-        { display: "call", answer: "called", hint: "Past tense" },
-        { display: "break", answer: "broke", hint: "Past tense" },
-        { display: "rid", answer: "rid", hint: "Past tense" },
-        { display: "grow", answer: "grew", hint: "Past tense" },
-        { display: "have", answer: "had", hint: "Past tense" },
-        { display: "use", answer: "used", hint: "Past tense" },
-        { display: "find", answer: "found", hint: "Past tense" },
-        { display: "eat", answer: "ate", hint: "Past tense" },
-        { display: "fall", answer: "fell", hint: "Past tense" }
+        { display: "walk", answer: "walked", hint: "Past tense", type: "word" },
+        { display: "talk", answer: "talked", hint: "Past tense", type: "word" },
+        { display: "wash", answer: "washed", hint: "Past tense", type: "word" },
+        { display: "play", answer: "played", hint: "Past tense", type: "word" },
+        { display: "burn", answer: "burned", hint: "Past tense", type: "word" },
+        { display: "watch", answer: "watched", hint: "Past tense", type: "word" },
+        { display: "jump", answer: "jumped", hint: "Past tense", type: "word" },
+        { display: "clean", answer: "cleaned", hint: "Past tense", type: "word" },
+        { display: "look", answer: "looked", hint: "Past tense", type: "word" },
+        { display: "wish", answer: "wished", hint: "Past tense", type: "word" },
+        { display: "cook", answer: "cooked", hint: "Past tense", type: "word" },
+        { display: "open", answer: "opened", hint: "Past tense", type: "word" },
+        { display: "ride", answer: "rode", hint: "Past tense", type: "word" },
+        { display: "read", answer: "read", hint: "Past tense", type: "word" },
+        { display: "run", answer: "ran", hint: "Past tense", type: "word" },
+        { display: "cut", answer: "cut", hint: "Past tense", type: "word" },
+        { display: "come", answer: "came", hint: "Past tense", type: "word" },
+        { display: "catch", answer: "caught", hint: "Past tense", type: "word" },
+        { display: "do", answer: "did", hint: "Past tense", type: "word" },
+        { display: "buy", answer: "bought", hint: "Past tense", type: "word" },
+        { display: "fly", answer: "flew", hint: "Past tense", type: "word" },
+        { display: "take", answer: "took", hint: "Past tense", type: "word" },
+        { display: "speak", answer: "spoke", hint: "Past tense", type: "word" },
+        { display: "drink", answer: "drank", hint: "Past tense", type: "word" },
+        { display: "get", answer: "got", hint: "Past tense", type: "word" },
+        { display: "sleep", answer: "slept", hint: "Past tense", type: "word" },
+        { display: "put", answer: "put", hint: "Past tense", type: "word" },
+        { display: "tell", answer: "told", hint: "Past tense", type: "word" },
+        { display: "go", answer: "went", hint: "Past tense", type: "word" },
+        { display: "accept", answer: "accepted", hint: "Past tense", type: "word" },
+        { display: "correct", answer: "corrected", hint: "Past tense", type: "word" },
+        { display: "dance", answer: "danced", hint: "Past tense", type: "word" },
+        { display: "cry", answer: "cried", hint: "Past tense", type: "word" },
+        { display: "answer", answer: "answered", hint: "Past tense", type: "word" },
+        { display: "rain", answer: "rained", hint: "Past tense", type: "word" },
+        { display: "pack", answer: "packed", hint: "Past tense", type: "word" },
+        { display: "finish", answer: "finished", hint: "Past tense", type: "word" },
+        { display: "listen", answer: "listened", hint: "Past tense", type: "word" },
+        { display: "enjoy", answer: "enjoyed", hint: "Past tense", type: "word" },
+        { display: "work", answer: "worked", hint: "Past tense", type: "word" },
+        { display: "call", answer: "called", hint: "Past tense", type: "word" },
+        { display: "break", answer: "broke", hint: "Past tense", type: "word" },
+        { display: "rid", answer: "rid", hint: "Past tense", type: "word" },
+        { display: "grow", answer: "grew", hint: "Past tense", type: "word" },
+        { display: "have", answer: "had", hint: "Past tense", type: "word" },
+        { display: "use", answer: "used", hint: "Past tense", type: "word" },
+        { display: "find", answer: "found", hint: "Past tense", type: "word" },
+        { display: "eat", answer: "ate", hint: "Past tense", type: "word" },
+        { display: "fall", answer: "fell", hint: "Past tense", type: "word" }
     ]
 };
 
@@ -838,7 +806,20 @@ function loadQuestion() {
     const idx = practice.currentIndex;
 
     document.getElementById('pcNumber').textContent = `Q${idx + 1}`;
-    document.getElementById('pcWord').textContent = q.display;
+
+    const wordEl = document.getElementById('pcWord');
+    wordEl.textContent = q.display;
+
+    // Set font size based on content type
+    wordEl.className = 'pc-word';
+    if (q.type === 'letter') {
+        wordEl.classList.add('size-letter');
+    } else if (q.type === 'sentence') {
+        wordEl.classList.add('size-sentence');
+    } else {
+        wordEl.classList.add('size-word');
+    }
+
     document.getElementById('pcHint').textContent = q.hint || '';
 
     const progress = (idx / total) * 100;
@@ -898,8 +879,7 @@ function updateTimerDisplay() {
 
 function finishPractice() {
     clearInterval(timer);
-    
-    // Exit fullscreen
+
     if (document.exitFullscreen) {
         document.exitFullscreen().catch(err => console.log('Exit fullscreen error'));
     }
@@ -941,7 +921,7 @@ function finishPractice() {
 function exitPractice() {
     if (!confirm('Exit practice? Your progress will be lost.')) return;
     clearInterval(timer);
-    
+
     if (document.exitFullscreen) {
         document.exitFullscreen().catch(err => console.log('Exit fullscreen error'));
     }
